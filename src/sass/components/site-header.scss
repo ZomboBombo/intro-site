@@ -1,0 +1,66 @@
+.site-header {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0;
+  padding: 0.6rem;
+
+  &__wrapp {
+    display: flex;
+    gap: 3.2rem;
+    margin: 0;
+    padding: 1.6rem;
+    border: 1px solid var(--ui-contrast-primary);
+    border-radius: 1.2rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    column-gap: 1.2rem;
+    width: auto;
+    max-width: 400px;
+  }
+
+  &__logo-icon {
+    width: 100%;
+    max-width: 6.4rem;
+    min-width: 6.4rem;
+    height: auto;
+    min-height: 6.4rem;
+  }
+
+  &__logo-descr {
+    font: {
+      size: 2.4rem;
+      weight: 700;
+    };
+  }
+
+  &__triggers {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+    width: max-content;
+    height: auto;
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+  }
+
+  &__nav {
+    display: flex;
+    column-gap: 3.2rem;
+  }
+
+  &__nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem;
+    width: auto;
+    max-width: 62.5rem;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+}

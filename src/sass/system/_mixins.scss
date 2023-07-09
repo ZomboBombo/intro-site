@@ -1,0 +1,97 @@
+@use "vars" as *;
+
+
+/*
+  Миксин для настроек плавности интерактивных элементов
+*/
+@mixin trans-config ($property, $duration: 0.325s, $timing-func: ease) {
+  transition: {
+    property: $property;
+    duration: $duration;
+    timing-function: $timing-func;
+  }
+}
+
+
+/*
+  Стили для изображений внутри <picture>
+*/
+@mixin pictured-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+
+/*
+  Универсальный миксин для медиа-запросов
+*/
+@mixin media($media) {
+  @if $media == fullhd {
+    @media only screen and (max-width: calc($media-fullhd - 1px)) { @content; }
+  }
+  @else if $media == fullhd-min {
+    @media only screen and (min-width: calc($media-fullhd + 1px)) { @content; }
+  }
+
+  @else if $media == hd {
+    @media only screen and (max-width: calc($media-hd - 1px)) { @content; }
+  }
+  @else if $media == hd-min {
+    @media only screen and (min-width: calc($media-hd + 1px)) { @content; }
+  }
+
+  @else if $media == hd-plus {
+    @media only screen and (max-width: calc($media-hd-plus - 1px)) { @content; }
+  }
+  @else if $media == hd-plus-min {
+    @media only screen and (min-width: calc($media-hd-plus + 1px)) { @content; }
+  }
+
+  @else if $media == desktop {
+    @media only screen and (max-width: calc($media-desktop - 1px)) { @content; }
+  }
+  @else if $media == desktop-min {
+    @media only screen and (min-width: calc($media-desktop + 1px)) { @content; }
+  }
+
+  @else if $media == notebook {
+    @media only screen and (max-width: calc($media-notebook - 1px)) { @content; }
+  }
+  @else if $media == notebook-min {
+    @media only screen and (min-width: calc($media-notebook + 1px)) { @content; }
+  }
+
+  @else if $media == tablet {
+    @media only screen and (max-width: calc($media-tablet - 1px)) { @content; }
+  }
+  @else if $media == tablet-min {
+    @media only screen and (min-width: calc($media-tablet + 1px)) { @content; }
+  }
+
+  @else if $media == phone {
+    @media only screen and (max-width: calc($media-phone - 1px)) { @content; }
+  }
+  @else if $media == phone-min {
+    @media only screen and (min-width: calc($media-phone + 1px)) { @content; }
+  }
+
+  @else if $media == smartphone {
+    @media only screen and (max-width: calc($media-smartphone - 1px)) { @content; }
+  }
+  @else if $media == smartphone-min {
+    @media only screen and (min-width: calc($media-smartphone + 1px)) { @content; }
+  }
+
+  @else if $media == end {
+    @media only screen and (max-width: calc($media-end - 1px)) { @content; }
+  }
+
+  @else if $media == retina {
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      @content;
+    }
+  }
+}

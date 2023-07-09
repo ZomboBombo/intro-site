@@ -1,0 +1,59 @@
+@use "../system/vars" as *;
+@use "../system/mixins" as *;
+
+:root {
+  --ui-skill-color--main: hsl(0 0% 65%);
+  --ui-skill-color--bg: hsl(0 0% 65% / 0.25);
+}
+
+.ui-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  list-style-type: none;
+
+  &__item {
+    $item-inner-gap--vertical: 1.2rem;
+    $item-inner-gap--horizontal: 2.4rem;
+    $item-brd-radius: calc( $item-inner-gap--vertical * 4 );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding:
+      $item-inner-gap--vertical
+      $item-inner-gap--horizontal;
+    font: {
+      size: 3.2rem;
+      weight: 400;
+    };
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--ui-skill-color--main);
+    background-color: var(--ui-skill-color--bg);
+    border: 1px solid var(--ui-skill-color--main);
+    border-radius: $item-brd-radius;
+
+    &:nth-child(5n - 4) {
+      --ui-skill-color--main: rgb(182 18 18);
+      --ui-skill-color--bg: rgb(182 18 18 / 0.25);
+    }
+    &:nth-child(5n - 3) {
+      --ui-skill-color--main: rgb(22 173 22);
+      --ui-skill-color--bg: rgb(22 173 22 / 0.25);
+    }
+    &:nth-child(5n - 2) {
+      --ui-skill-color--main: rgb(13 97 194);
+      --ui-skill-color--bg: rgb(13 97 194 / 0.25);
+    }
+    &:nth-child(5n - 1) {
+      --ui-skill-color--main: rgb(230 170 8);
+      --ui-skill-color--bg: rgb(230 170 8 / 0.25);
+    }
+    &:nth-child(5n) {
+      --ui-skill-color--main: rgb(184 8 184);
+      --ui-skill-color--bg: rgb(184 8 184 / 0.25);
+    }
+  }
+}

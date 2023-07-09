@@ -1,0 +1,41 @@
+/*
+  Viewports and Widths
+*/
+
+$width--min:                                      375px;
+$width--max:                                      1920px;
+
+/*
+  Media
+*/
+$media-end:                                       375px;
+$media-phone:                                     480px;
+$media-smartphone:                                620px;
+$media-tablet:                                    768px;
+$media-notebook:                                  960px;
+$media-desktop:                                   1024px;
+$media-hd:                                        1280px;
+$media-hd-plus:                                   1440px;
+$media-fullhd:                                    1920px;
+
+/*
+  Retina
+*/
+$retina-dpi:                                      144dpi;
+$retina-dppx:                                     1.5dppx;
+
+
+/*
+  Colors: system
+*/
+$color-default-white:                           #ffffff;
+$color-default-black:                           #000000;
+$color-transparent:                             rgb(255 255 255 / 0);
+
+
+/*
+  Z-indexes
+*/
+$z-header:                                        99;
+$z-drops:                                         999;
+$z-modals:                                        9999;

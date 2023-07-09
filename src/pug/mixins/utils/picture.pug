@@ -1,0 +1,25 @@
+mixin picture(props = {})
+  - const isSVG = props.ext === 'svg';
+  - const pictureAlt = props.alt ?? '';
+
+  if isSVG
+    picture&attributes(attributes)
+      img(
+        width= props.width
+        height= props.height
+        class= props.imgClass
+        src=`./img/${props.name}.${props.ext}`
+        alt= props.alt
+      )
+
+  else
+    picture&attributes(attributes)
+      source(type="image/webp" srcset=`./img/${props.name}.webp, ./img/${props.name}@2x.webp 2x`)
+      img(
+        class= props.imgClass
+        src=`./img/${props.name}.${props.ext}`
+        srcset=`./img/${props.name}@2x.${props.ext}`
+        width= props.width
+        height= props.height
+        alt= pictureAlt
+      )

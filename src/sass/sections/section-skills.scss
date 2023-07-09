@@ -1,0 +1,28 @@
+@use "../system/vars" as *;
+@use "../system/mixins" as *;
+
+.section-skills {
+  background-color: var(--ui-contrast-secondary);
+
+  &__wrapp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4rem;
+    margin: 0;
+    padding: {
+      top: 2rem;
+      bottom: 2rem;
+    };
+  }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    font: {
+      size: 7.5rem;
+      weight: 700;
+    };
+    color: var(--color-def-white);
+  }
+}

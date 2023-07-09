@@ -1,0 +1,21 @@
+mixin ui-fancy-button(props = {})
+  - const isLink = props.href;
+  - const title = props.title ?? false;
+
+  if isLink
+    a.ui-fancy-button(
+      href=props.href
+      title=title
+      aria-label=title
+      value=props.text
+    )&attributes(attributes)
+      | #{props.text}
+
+  else
+    button.ui-fancy-button(
+      type=props.type
+      title=title
+      aria-label=title
+      value=props.text
+    )&attributes(attributes)
+      | #{props.text}

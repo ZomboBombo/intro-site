@@ -1,0 +1,68 @@
+@use "../system/vars" as *;
+@use "../system/mixins" as *;
+
+.section-about {
+  $def-block-radius: 4rem;
+  $def-block-box-shadow:
+    2rem 2.75rem 4rem 0 var(--ui-bg-primary),
+    1.75rem 2.75rem 0 0 var(--ui-primary),
+    -2rem -2.75rem 4rem 0 var(--ui-bg-primary),
+    -1.75rem -2.75rem 0 0 var(--ui-contrast-primary);
+
+  display: flex;
+  column-gap: 6.4rem;
+  width: 100%;
+  max-width: 75vw;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+
+  &__selfie {
+    display: block;
+    width: 100%;
+    max-width: 44rem;
+    height: auto;
+    max-height: 96rem;
+    background: {
+      color: var(--ui-primary);
+      image: var(--ui-bg-gradient);
+      repeat: repeat;
+      size: 25% 25%;
+      position: center center;
+    };
+    border: {
+      width: 2px;
+      style: solid;
+      color: var(--ui-primary);
+      radius: $def-block-radius;
+    };
+    box-shadow: $def-block-box-shadow;
+    overflow: hidden;
+
+    img {
+      @include pictured-image;
+    }
+  }
+
+  &__info-box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4.2rem;
+    margin: 0;
+    padding: 3.2rem;
+    background: {
+      color: var(--color-bg-gradient-placeholder--dark);
+      image: var(--ui-bg-gradient);
+      repeat: no-repeat;
+      position: left top;
+    };
+    border-radius: $def-block-radius;
+    box-shadow: $def-block-box-shadow;
+
+    p {
+      font-size: 3.8rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ui-primary);
+    }
+  }
+}

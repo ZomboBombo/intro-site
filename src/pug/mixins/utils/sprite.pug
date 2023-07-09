@@ -1,0 +1,10 @@
+mixin sprite()
+  script.
+    (async () => {
+      const sprite = await fetch('./img/sprite.svg');
+      const div = document.createElement('div');
+      div.className = 'visually-hidden';
+      div.innerHTML = await sprite.text();
+      document.body.insertBefore(div, document.body.childNodes[0]);
+    })();
+

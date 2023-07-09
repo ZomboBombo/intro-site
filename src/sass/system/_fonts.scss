@@ -1,0 +1,50 @@
+/*
+==============================================================================================================
+-------------------------------------------- Шрифт «Inconsolata» --------------------------------------------
+==============================================================================================================
+*/
+
+// *** жирность «Light» ***
+@font-face {
+  font: {
+    family: "Inconsolata";
+    style: normal;
+    weight: 300;
+    display: swap;
+    stretch: 100%;
+  };
+
+  src:
+    url("../fonts/inconsolata/Inconsolata-Light.woff2") format("woff2"),
+    url("../fonts/inconsolata/Inconsolata-Light.woff") format("woff");
+}
+
+// *** жирность «Regular» ***
+@font-face {
+  font: {
+    family: "Inconsolata";
+    style: normal;
+    weight: 400;
+    display: swap;
+    stretch: 100%;
+  };
+
+  src:
+    url("../fonts/inconsolata/Inconsolata-Regular.woff2") format("woff2"),
+    url("../fonts/inconsolata/Inconsolata-Regular.woff") format("woff");
+}
+
+// *** жирность «Bold» ***
+@font-face {
+  font: {
+    family: "Inconsolata";
+    style: normal;
+    weight: 700;
+    display: swap;
+    stretch: 100%;
+  };
+
+  src:
+    url("../fonts/inconsolata/Inconsolata-Bold.woff2") format("woff2"),
+    url("../fonts/inconsolata/Inconsolata-Bold.woff") format("woff");
+}

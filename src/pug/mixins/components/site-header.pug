@@ -1,0 +1,17 @@
+mixin site-header(props = {})
+  header.site-header
+    .site-header__wrapp
+      a.site-header__logo(href="/")
+        +icon({ width: 64, height: 64, name: 'icon-logo' }).site-header__logo-icon
+        p.site-header__logo-descr Sergey Novikov's official Intro-Site
+
+      .site-header__triggers
+        nav.site-header__nav
+          menu.site-header__nav-menu
+            each navLink in DATA_NAV_HEADER
+              li.site-header__nav-item
+                +ui-fancy-button({ href: navLink.href, text: navLink.text })
+
+          // the «Theme Switcher»
+          +theme-switcher()
+          // /the «Theme Switcher»

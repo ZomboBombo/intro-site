@@ -1,0 +1,54 @@
+/***
+** 1. Служебные стили
+***/
+
+// --- Глобальные ---
+@forward "system/reset";
+@forward "system/fonts";
+@forward "system/vars";
+@forward "system/core";
+
+// --- Вендоры ---
+@forward "../../node_modules/swiper/swiper";
+
+
+/***
+** 2. Утилиты
+***/
+@forward "utils/helpers";
+@forward "utils/container";
+
+
+/***
+** 3. UI-стили
+***/
+@forward "ui/ui-fancy-button";
+@forward "ui/ui-skills";
+
+
+/***
+** 4. Компоненты
+***/
+@forward "components/site-header";
+@forward "components/site-footer";
+@forward "components/theme-switcher";
+
+
+/***
+** 5. Проектные стили
+***/
+
+// 5.1: Секции
+@forward "sections";
+
+// 5.2: Блоки
+@forward "blocks";
+
+
+/***
+** 6. "Эксклюзивные" стили
+***/
+/*
+ * --- Используются только на служебных страницах проекта
+ * --- наподобие "UI-kit" или "Сайтмапы".
+ */

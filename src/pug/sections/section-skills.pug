@@ -1,0 +1,42 @@
+mixin section-skills
+  //-
+    The "+_skill()" mixin is available
+    inside the "+section-skills()" mixin only
+  mixin _skill(props = {})
+    - const fullwidthMode = props.isFullwidth ? 'skills__skill--is-fullwidth' : null;
+
+    li.skills__skill(class=fullwidthMode data-card)&attributes(attributes)
+      strong.skills__skill-name(value=props.skillName)= props.skillName
+      ul.skills__skill-points-list
+        each skillPoint of props.skillPoints
+          li.skills__skill-point
+            span(data-skill-point-value="background")= skillPoint
+            span(data-skill-point-value="foreground")= skillPoint
+
+
+  //- Main markup of the "+section-skills()" mixin
+  section.section-skills
+    .container.section-skills__wrapp
+      h2.section-skills__title Skills
+
+      ol.skills
+        +_skill({
+          skillName: 'html',
+          skillPoints: [ 'semantic', 'a11y', 'micromarkup', 'markdown', ]
+        })
+
+        +_skill({
+          skillName: 'css',
+          skillPoints: [ 'css', 'scss', 'flex | grid', 'css-animation', ]
+        })
+
+        +_skill({
+          skillName: 'js',
+          skillPoints: [ 'vanilla fundamentals', 'DRY', 'KISS', ]
+        })
+
+        +_skill({
+          skillName: 'build & automatization',
+          skillPoints: [ 'pug', 'nunjucks', 'webpack', ],
+          isFullwidth: true
+        })

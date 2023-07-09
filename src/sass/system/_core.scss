@@ -1,0 +1,77 @@
+@use "vars" as *;
+@use "mixins" as *;
+
+
+// === ГЛОБАЛЬНЫЕ СТИЛИ ===
+:root {
+  --color-def-white: hsl(0 0% 100%);
+  --color-def-black: hsl(0 0% 0%);
+  --color-def-transparent: hsl(0 0% 100% / 0);
+  --color-muted--light: hsl(0 0% 65%);
+  --color-muted--dark: hsl(0 0% 36%);
+
+  --color-bg-gradient-placeholder--light: hsl(265 50% 37%);
+  --color-bg-gradient-placeholder--dark: hsl(260 60% 21%);
+  --color-bg-gradient-placeholder: linear-gradient(
+    -45deg,
+    var(--color-bg-gradient-placeholder--light) 0%,
+    var(--color-bg-gradient-placeholder--light) 50%,
+    var(--color-bg-gradient-placeholder--dark) 50%,
+    var(--color-bg-gradient-placeholder--dark) 100%
+  );
+
+
+  --ui-bg-gradient: linear-gradient(
+    -45deg,
+    var(--ui-bg-primary) 0%,
+    var(--ui-bg-secondary) 100%
+  );
+
+  --ui-bg-primary: hsl(265 100% 3%);
+  --ui-bg-primary--translucent: hsl(265 100% 3% / 0.75);
+  --ui-bg-secondary: hsl(260 60% 21%);
+  --ui-contrast-primary: hsl(265 100% 70%);
+  --ui-contrast-secondary: hsl(265 50% 37%);
+  --ui-primary: hsl(33 100% 45%);
+  --ui-primary--opacity025: hsl(33 100% 45% / 0.25);
+
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font: {
+    family: 'Inconsolata', monospace;
+    size: 1.6rem;
+  };
+  color: var(--ui-primary);
+  background: {
+    color: var(--ui-bg-primary);
+    image: var(--ui-bg-gradient);
+    repeat: no-repeat;
+    position: center top;
+    size: 100% 100%;
+  };
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.4rem;
+}
