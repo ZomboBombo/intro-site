@@ -2,30 +2,30 @@ doctype html
 include ./components
 
 block variables
-  - var hasHeader = true;
-  - var hasFooter = true;
+    - var hasHeader = true;
+    - var hasFooter = true;
 
 html(lang="ru")
-  head
-    title= title
-    meta(charset="utf-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    meta(name="description", content="")
+    head
+        title= title
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        meta(name="description", content="")
 
-    // Размер дефолтной фавиконки: 32x32
-    link(rel="icon" href="./favicon.ico")
-    link(rel="icon" href="./favicons/favicon.svg" type="image/svg+xml")
-    link(rel="apple-touch-icon" href="./favicons/apple-touch-icon.png")
-    link(rel="manifest" href="./favicons/manifest.webmanifest" crossorigin="use-credentials")
+        // Размер дефолтной фавиконки: 32x32
+        link(rel="icon" href="./favicon.ico")
+        link(rel="icon" href="./favicons/favicon.svg" type="image/svg+xml")
+        link(rel="apple-touch-icon" href="./favicons/apple-touch-icon.png")
+        link(rel="manifest" href="./favicons/manifest.webmanifest" crossorigin="use-credentials")
 
-    // Прелоад шрифтов
-    link(rel="preload" href="./fonts/inconsolata/Inconsolata-Regular.woff2" as="font" crossorigin="anonymous")
-    link(rel="stylesheet" href="./css/styles.min.css")
+        // Прелоад шрифтов
+        link(rel="preload" href="./fonts/inconsolata/Inconsolata-Regular.woff2" as="font" crossorigin="anonymous")
+        link(rel="stylesheet" href="./css/styles.min.css")
 
-  body
-    +sprite()
+    body
+        +sprite()
 
-    block main
+        block main
 
-    script(src="##hot-bundle-js##?ver=##hash##")
+        script(src="##hot-bundle-js##?ver=##hash##")
