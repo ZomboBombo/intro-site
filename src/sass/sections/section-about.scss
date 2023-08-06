@@ -2,67 +2,116 @@
 @use "../system/mixins" as *;
 
 .section-about {
-  $def-block-radius: 4rem;
-  $def-block-box-shadow:
-    2rem 2.75rem 4rem 0 var(--ui-bg-primary),
-    1.75rem 2.75rem 0 0 var(--ui-primary),
-    -2rem -2.75rem 4rem 0 var(--ui-bg-primary),
-    -1.75rem -2.75rem 0 0 var(--ui-contrast-primary);
+    $def-block-radius: 4rem;
+    $def-block-box-shadow:
+        2rem 2.75rem 4rem 0 var(--ui-bg-primary),
+        1.75rem 2.75rem 0 0 var(--ui-primary),
+        -2rem -2.75rem 4rem 0 var(--ui-bg-primary),
+        -1.75rem -2.75rem 0 0 var(--ui-contrast-primary);
 
-  display: flex;
-  column-gap: 6.4rem;
-  width: 100%;
-  max-width: 75vw;
-  margin: 0 auto;
-  padding: 6rem 2rem;
-
-  &__selfie {
-    display: block;
-    width: 100%;
-    max-width: 44rem;
-    height: auto;
-    max-height: 96rem;
-    background: {
-      color: var(--ui-primary);
-      image: var(--ui-bg-gradient);
-      repeat: repeat;
-      size: 25% 25%;
-      position: center center;
-    };
-    border: {
-      width: 2px;
-      style: solid;
-      color: var(--ui-primary);
-      radius: $def-block-radius;
-    };
-    box-shadow: $def-block-box-shadow;
-    overflow: hidden;
-
-    img {
-      @include pictured-image;
-    }
-  }
-
-  &__info-box {
     display: flex;
-    flex-direction: column;
-    row-gap: 4.2rem;
-    margin: 0;
-    padding: 3.2rem;
-    background: {
-      color: var(--color-bg-gradient-placeholder--dark);
-      image: var(--ui-bg-gradient);
-      repeat: no-repeat;
-      position: left top;
-    };
-    border-radius: $def-block-radius;
-    box-shadow: $def-block-box-shadow;
+    column-gap: 6.4rem;
+    width: 100%;
+    max-width: 75vw;
+    margin: 0 auto;
+    padding: 6rem 2rem;
 
-    p {
-      font-size: 3.8rem;
-      font-weight: 700;
-      line-height: 1;
-      color: var(--ui-primary);
+    /**
+    * Max VW: 1024px
+    */
+    @include media(desktop) {
+        flex-direction: column;
+        margin: {
+            top: 4.8rem;
+            bottom: 4.8rem;
+        };
+        padding: 0;
+        border: {
+            width: 2px;
+            style: solid;
+            color: var(--ui-primary);
+            radius: $def-block-radius;
+        };
+        box-shadow: $def-block-box-shadow;
+        overflow: hidden;
     }
-  }
+
+    &__selfie {
+        display: block;
+        width: 100%;
+        min-width: 32rem;
+        max-width: 44rem;
+        height: auto;
+        max-height: 96rem;
+        background: {
+            color: var(--ui-primary);
+            image: var(--ui-bg-gradient);
+            repeat: repeat;
+            size: 25% 25%;
+            position: center center;
+        };
+        border: {
+            width: 2px;
+            style: solid;
+            color: var(--ui-primary);
+            radius: $def-block-radius;
+        };
+        box-shadow: $def-block-box-shadow;
+        overflow: hidden;
+
+        img {
+            @include pictured-image;
+        }
+
+        /**
+        * Max VW: 1024px
+        */
+        @include media(desktop) {
+            min-width: 24rem;
+            max-width: 100%;
+            border: none;
+            border-bottom: 2px solid var(--ui-primary);
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
+
+    &__info-box {
+        display: flex;
+        flex-direction: column;
+        row-gap: 4.2rem;
+        margin: 0;
+        padding: 3.2rem;
+        background: {
+            color: var(--color-bg-gradient-placeholder--dark);
+            image: var(--ui-bg-gradient);
+            repeat: no-repeat;
+            position: left top;
+        };
+        border-radius: $def-block-radius;
+        box-shadow: $def-block-box-shadow;
+
+        p {
+            font-size: clamp( 3.2rem, 2.25vw, 3.8rem );
+            font-weight: 700;
+            line-height: 1;
+            color: var(--ui-primary);
+
+            /**
+            * Max VW: 1280px
+            */
+            @include media(hd) {
+              font-size: clamp( 2.4rem, 2.25vw, 3.2rem );
+            }
+        }
+
+        /**
+        * Max VW: 1024px
+        */
+        @include media(desktop) {
+            row-gap: clamp( 2.4rem, 4.25vw, 4.2rem );
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
 }
