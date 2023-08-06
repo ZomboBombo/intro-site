@@ -1,8 +1,10 @@
-import initThemeSwitcher from './modules/theme-switcher';
-import initCardTilt from './modules/card-tilt';
+import initThemeSwitcher from './modules/init-theme-switcher';
+import initBurgerMenu from './modules/init-burger-menu';
+import initCardTilt from './modules/init-card-tilt';
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeSwitcher();
+  initBurgerMenu();
   initCardTilt();
 });
 
