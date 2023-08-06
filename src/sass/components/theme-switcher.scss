@@ -1,66 +1,90 @@
 @use "../system/vars" as *;
 @use "../system/mixins" as *;
 
+
+:root {
+    --ts-triggers-count: 3;
+    --ts-def-inner-gap: 0.2rem;
+    --ts-def-radius: 2rem;
+
+    --indicator-width-relative-to-count: calc(
+        calc(100 / var(--ts-triggers-count)) * 1%
+    );
+    --indicator-size: calc( var(--indicator-width-relative-to-count) - (var(--ts-def-inner-gap) / 4) );
+}
+
 .theme-switcher {
-  $ts-triggers-count: 3;
-  $ts-def-inner-gap: 0.2rem;
-  $ts-def-radius: 2rem;
-
-  position: relative;
-  isolation: isolate;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 0;
-  padding: 0.2rem;
-  border: {
-    width: 2px;
-    style: solid;
-    color: var(--ui-primary);
-    radius: 2rem;
-  };
-
-  &__trigger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: auto;
     margin: 0;
-    padding: 0.8rem 1.6rem;
-    border: none;
-    border-radius: $ts-def-radius;
-    cursor: pointer;
-    $trans-props: background-color, opacity;
-    @include trans-config($trans-props);
+    padding: 0.2rem;
+    border: {
+        width: 2px;
+        style: solid;
+        color: var(--ui-primary);
+        radius: 2rem;
+    };
 
-    &[aria-pressed="true"] {
-      color: var(--color-def-black);
+    &__trigger {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        margin: 0;
+        padding: 0.8rem 1.6rem;
+        font: {
+            size: 1.6rem;
+            weight: 400;
+        };
+        border: none;
+        border-radius: var(--ts-def-radius);
+        cursor: pointer;
+        overflow: hidden;
+        $trans-props: background-color, opacity;
+        @include trans-config($trans-props);
+
+        /**
+        * Max VW: 1024px
+        */
+        @include media(w768) {
+            display: block;
+            font-size: 0;
+            text-align: center;
+
+            &::first-letter {
+                font-size: 1.6rem;
+            }
+        }
+
+        &[aria-pressed="true"] {
+            color: var(--color-def-black);
+        }
+
+        &:where(:hover, :focus-visible) {
+            background-color: var(--ui-primary--opacity025);
+        }
+        &:active {
+            opacity: 0.25;
+        }
     }
 
-    &:hover,
-    &:focus-visible {
-      background-color: var(--ui-primary--opacity025);
+    &__indicator {
+        position: absolute;
+        inset: var(--ts-def-inner-gap);
+        z-index: -1;
+        display: block;
+        width: var(--indicator-size);
+        margin-inline: auto;
+        background-color: var(--ui-primary);
+        border-radius: var(--ts-def-radius);
+        $trans-props: transform;
+        @include trans-config($trans-props);
     }
 
-    &:active {
-      opacity: 0.25;
-    }
-  }
-
-  &__indicator {
-    $indicator-size: calc( 33% - ($ts-def-inner-gap / 4) );
-
-    position: absolute;
-    inset: $ts-def-inner-gap;
-    z-index: -1;
-    display: block;
-    width: $indicator-size;
-    margin-inline: auto;
-    background-color: var(--ui-primary);
-    border-radius: $ts-def-radius;
-    $trans-props: transform;
-    @include trans-config($trans-props);
-  }
-
-  &__trigger[aria-pressed="true"][value="dark"] ~ &__indicator { transform: translateX(-100%); }
-  &__trigger[aria-pressed="true"][value="system"] ~ &__indicator { transform: translateX(0); }
-  &__trigger[aria-pressed="true"][value="light"] ~ &__indicator { transform: translateX(100%); }
+    &__trigger[aria-pressed="true"][value="dark"] ~ &__indicator { transform: translateX(-100%); }
+    &__trigger[aria-pressed="true"][value="system"] ~ &__indicator { transform: translateX(0); }
+    &__trigger[aria-pressed="true"][value="light"] ~ &__indicator { transform: translateX(100%); }
 }
