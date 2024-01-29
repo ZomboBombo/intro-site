@@ -2,16 +2,17 @@ doctype html
 include ./components
 
 block variables
-    - var hasHeader = true;
-    - var hasFooter = true;
+    -
+        var hasHeader = true
+        var hasFooter = true
 
 html(lang="ru")
     head
         title= title
         meta(charset="utf-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        meta(name="description", content="")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        meta(name="description" content="")
 
         // Размер дефолтной фавиконки: 32x32
         link(rel="icon" href="./favicon.ico")
@@ -25,6 +26,8 @@ html(lang="ru")
 
     body
         +sprite()
+
+        +site-header()
 
         block main
 

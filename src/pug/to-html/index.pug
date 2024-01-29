@@ -1,16 +1,9 @@
 extends ../base/layout
 
 append variables
-  - const title = "Главная"
+    - const title = "Главная"
 
 
 block main
-  +site-header()
-
-  main
-    h1.visually-hidden Intro
-    +section-about
-    +section-skills
-
-  +site-footer()
-
+    main
+        h1.visually-hidden Intro

@@ -1,25 +1,26 @@
-mixin picture(props = {})
-  - const isSVG = props.ext === 'svg';
-  - const pictureAlt = props.alt ?? '';
+mixin picture(data = {})
+    -
+        const isSVG = data.ext === 'svg'
+        const alt = data.alt || ''
 
-  if isSVG
-    picture&attributes(attributes)
-      img(
-        width= props.width
-        height= props.height
-        class= props.imgClass
-        src=`./img/${props.name}.${props.ext}`
-        alt= props.alt
-      )
+    if isSVG
+        picture&attributes(attributes)
+            img(
+                width= data.width
+                height= data.height
+                class= data.imgClass
+                src=`./img/${data.name}.${data.ext}`
+                alt= data.alt
+            )
 
-  else
-    picture&attributes(attributes)
-      source(type="image/webp" srcset=`./img/${props.name}.webp, ./img/${props.name}@2x.webp 2x`)
-      img(
-        class= props.imgClass
-        src=`./img/${props.name}.${props.ext}`
-        srcset=`./img/${props.name}@2x.${props.ext}`
-        width= props.width
-        height= props.height
-        alt= pictureAlt
-      )
+    else
+        picture&attributes(attributes)
+            source(type="image/webp" srcset=`./img/${data.name}.webp, ./img/${data.name}@2x.webp 2x`)
+            img(
+                class= data.imgClass
+                src=`./img/${data.name}.${data.ext}`
+                srcset=`./img/${data.name}@2x.${data.ext}`
+                width= data.width
+                height= data.height
+                alt=alt
+            )
