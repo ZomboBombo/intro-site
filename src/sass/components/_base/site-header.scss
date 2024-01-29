@@ -1,0 +1,59 @@
+@use "../../system/mixins" as *;
+
+
+:root {
+    --nm-gap: 0.2rem;
+    --nm-link-gap: 1.25rem;
+    --nm-brd-rad: calc(var(--nm-link-gap, 1.25rem) * 4);
+}
+
+.site-header {
+    margin: 0;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--ui-secondary);
+
+    &__logo {
+        margin: 0;
+        padding: 0;
+        color: var(--ui-secondary);
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3.2rem;
+    }
+
+    &__nav-menu {
+        @include reset-list;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        font-size: 3.2rem;
+        gap: 1.25em;
+        margin: 0;
+        padding: var(--nm-gap);
+        border: 0.2rem solid var(--ui-secondary);
+        border-radius: var(--nm-brd-rad);
+    }
+
+    &__nav-menu-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding:
+            var(--nm-link-gap)
+            5rem;
+        border-radius: var(--nm-brd-rad);
+
+        $tProps: color, background-color;
+        @include trans-config($tProps);
+
+        &:where(:hover, :focus-visible) {
+            color: var(--ui-primary);
+            background-color: var(--ui-secondary);
+        }
+    }
+}

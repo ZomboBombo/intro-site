@@ -2,13 +2,23 @@
 
 
 /*
+  Миксин для сброса стилей списков
+*/
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+/*
   Миксин для настроек плавности интерактивных элементов
 */
-@mixin trans-config ($property, $duration: 0.325s, $timing-func: ease) {
+@mixin trans-config ($tProp, $tDur: 0.15s, $tTimingFunc: ease) {
   transition: {
-    property: $property;
-    duration: $duration;
-    timing-function: $timing-func;
+    property: $tProp;
+    duration: $tDur;
+    timing-function: $tTimingFunc;
   }
 }
 

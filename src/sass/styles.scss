@@ -23,16 +23,12 @@
 ** 3. UI-стили
 ***/
 @forward "ui/ui-fancy-button";
-@forward "ui/ui-skills";
 
 
 /***
 ** 4. Компоненты
 ***/
-@forward "components/site-header";
-@forward "components/site-footer";
-@forward "components/theme-switcher";
-
+@forward "components/_base/site-header";
 
 /***
 ** 5. Проектные стили
