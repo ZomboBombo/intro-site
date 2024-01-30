@@ -9,7 +9,9 @@
 
 .site-header {
     margin: 0;
-    padding: 1.25rem 2rem;
+    padding:
+        var(--gap-inner-def-vertical)
+        var(--gap-inner-def-horizontal);
     border-bottom: 1px solid var(--ui-secondary);
 
     &__logo {
@@ -30,8 +32,8 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        font-size: 3.2rem;
         gap: 1.25em;
+        font-size: 3.2rem;
         margin: 0;
         padding: var(--nm-gap);
         border: 0.2rem solid var(--ui-secondary);
