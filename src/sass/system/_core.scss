@@ -10,10 +10,11 @@
     --color-def-transparent: hsl(0 0% 100% / 0);
     //
     // => [ui]
-    --ui-primary: hsl(265 100% 3%);
-    --ui-primary-shade10: hsl(265 100% 10%);
-    --ui-secondary: hsl(260 60% 59%);
-    --ui-gradient: linear-gradient(45deg, var(--ui-primary) 0%, var(--ui-primary-shade10) 100%);
+    --ui-primary: hsl(272 58% 6%);
+    --ui-primary-shade-1: hsl(271 74% 6%);
+    --ui-primary-shade-2: hsl(271 34% 15%);
+    --ui-secondary: hsl(260 90% 81%);
+    --ui-gradient: linear-gradient(45deg, var(--ui-primary) 0%, var(--ui-primary-shade-1) 100%);
     //
     // => [color-scheme]
     --cs-dark: var(--ui-primary);
@@ -49,7 +50,11 @@ body {
         family: "Inconsolata", monospace, system-ui;
         size: 1.6rem;
     }
-    color: var(--ui-secondary);
-    // background-color: var(--cs-dark);
-    background: var(--ui-gradient);
+    color: var(--color-def-white);
+    background: {
+        color: var(--cs-dark);
+        image: var(--ui-gradient);
+        repeat: no-repeat;
+        position: center center;
+    };
 }
