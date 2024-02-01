@@ -1,0 +1,17 @@
+mixin section-hero(data = {})
+    section.section-hero&attributes(attributes)
+        hgroup.section-hero__title-box
+            h1.section-hero__title Hi! My name is #[code.section-hero__code #{'<Sergey Novikov>'}]
+            p.section-hero__title-desc
+                span.section-hero__title-desc-text
+                    | A frontend-dev, fan of #[code.section-hero__code #{'<coffee>'}], #[code.section-hero__code #{'<metroidvanias>'}] and #[code.section-hero__code #{'<kettlebells>'}].
+                span.section-hero__title-desc-text Since 2018 bring static designs to life in the Internet.
+
+        +picture({
+            width: 350,
+            height: 350,
+            name: 'content/content-selfie',
+            ext: 'png',
+            alt: 'It\'s me, hi!',
+        }).section-hero__pic
+
