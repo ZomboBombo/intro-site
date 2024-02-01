@@ -1,26 +1,31 @@
 mixin picture(data = {})
     -
+        const width = data.width || 100
+        const height = data.height || 100
+        const imgClass = data.imgClass || false
+        const name = data.name || 'content/pic-placeholder'
+        const ext = data.ext || 'png'
+        const alt = data.alt || false
         const isSVG = data.ext === 'svg'
-        const alt = data.alt || ''
 
     if isSVG
         picture&attributes(attributes)
             img(
-                width= data.width
-                height= data.height
-                class= data.imgClass
-                src=`./img/${data.name}.${data.ext}`
-                alt= data.alt
+                width=width
+                height=height
+                class=imgClass
+                src=`./img/${name}.${ext}`
+                alt=alt
             )
 
     else
         picture&attributes(attributes)
-            source(type="image/webp" srcset=`./img/${data.name}.webp, ./img/${data.name}@2x.webp 2x`)
+            source(type="image/webp" srcset=`./img/${name}.webp, ./img/${name}@2x.webp 2x`)
             img(
-                class= data.imgClass
-                src=`./img/${data.name}.${data.ext}`
-                srcset=`./img/${data.name}@2x.${data.ext}`
-                width= data.width
-                height= data.height
+                class=imgClass
+                src=`./img/${name}.${ext}`
+                srcset=`./img/${name}@2x.${ext}`
+                width=width
+                height=height
                 alt=alt
             )
