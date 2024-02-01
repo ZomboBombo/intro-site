@@ -11,7 +11,7 @@
     padding:
         var(--gap-inner-def-vertical)
         var(--gap-inner-def-horizontal);
-    border-top: 1px solid var(--ui-secondary);
+    border-top: 0.2rem solid var(--ui-secondary);
 
     &__nav-menu {
         @include reset-list;
