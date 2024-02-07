@@ -1,9 +1,31 @@
-/*
-  Viewports and Widths
-*/
+:root {
+    // Colors
+    // => [default]
+    --color-def-white: hsl(0 0% 100%);
+    --color-def-black: hsl(0 0% 0%);
+    --color-def-transparent: hsl(0 0% 100% / 0);
+    //
+    // => [ui]
+    --ui-primary: hsl(272 58% 6%);
+    --ui-primary-shade-1: hsl(271 74% 6%);
+    --ui-primary-shade-2: hsl(271 34% 15%);
+    --ui-secondary: hsl(260 90% 81%);
+    --ui-gradient: linear-gradient(45deg, var(--ui-primary) 0%, var(--ui-primary-shade-1) 100%);
+    //
+    // => [color-scheme]
+    --cs-dark: var(--ui-primary);
+    --cs-light: var(--ui-secondary);
 
-$width--min:                                      375px;
-$width--max:                                      1920px;
+    // Gaps
+    --gap-inner-def-vertical: 1.25rem;
+    --gap-inner-def-horizontal: 2rem;
+
+    // Width
+    --w-min: 37.5rem;
+    --w-1440: 144rem;
+    --w-max: 192rem;
+}
+
 
 /*
   Media
@@ -11,7 +33,7 @@ $width--max:                                      1920px;
 $media-end:                                       375px;
 $media-phone:                                     480px;
 $media-smartphone:                                620px;
-$media-w768:                                    768px;
+$media-w768:                                      768px;
 $media-notebook:                                  960px;
 $media-desktop:                                   1024px;
 $media-hd:                                        1280px;
@@ -23,15 +45,6 @@ $media-fullhd:                                    1920px;
 */
 $retina-dpi:                                      144dpi;
 $retina-dppx:                                     1.5dppx;
-
-
-/*
-  Colors: system
-*/
-$color-default-white:                           #ffffff;
-$color-default-black:                           #000000;
-$color-transparent:                             rgb(255 255 255 / 0);
-
 
 /*
   Z-indexes
