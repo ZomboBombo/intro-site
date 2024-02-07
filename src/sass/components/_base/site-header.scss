@@ -50,8 +50,8 @@
             5rem;
         border-radius: var(--nm-brd-rad);
 
-        $tProps: color, background-color;
-        @include trans-config($tProps);
+        $t-propss: color, background-color;
+        @include trans-config($t-propss);
 
         &:where(:hover, :focus-visible) {
             color: var(--ui-primary);

@@ -11,16 +11,6 @@
     margin-inline: auto;
     padding: 2.5rem;
 
-    &__code {
-        margin: 0;
-        padding: 0.2rem 0.4rem;
-        font-family: monospace;
-        color: var(--ui-secondary);
-        white-space: nowrap;
-        background-color: var(--ui-primary-shade-2);
-        border-radius: 0.4rem;
-    }
-
     &__title-box {
         display: contents;
     }
