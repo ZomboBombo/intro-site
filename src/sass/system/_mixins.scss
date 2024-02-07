@@ -2,7 +2,7 @@
 
 
 /*
-  Миксин для сброса стилей списков
+    <...> для сброса стилей списков
 */
 @mixin reset-list {
     margin: 0;
@@ -12,7 +12,7 @@
 
 
 /*
-  Миксин для настроек плавности интерактивных элементов
+    <...> для настроек плавности интерактивных элементов
 */
 @mixin trans-config ($t-props, $t-dur: 0.15s, $t-timing-func: ease) {
   transition: {
@@ -24,7 +24,7 @@
 
 
 /*
-  Стили для изображений внутри <picture>
+    <...> для изображений внутри <picture>
 */
 @mixin pictured-image {
   display: block;
@@ -32,6 +32,18 @@
   height: 100%;
   object-fit: cover;
   object-position: center center;
+}
+
+
+/*
+    <...> для добавления фона на всю ширину
+    для блоков, находящизся внутри семантических
+    wrapper-блоков на странице.
+*/
+@mixin fullwidth-bg($bg-color) {
+    background-color: $bg-color;
+    box-shadow: 0 0 0 100vmax $bg-color;
+    clip-path: inset(0 -100vmax);
 }
 
 
