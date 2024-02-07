@@ -14,11 +14,11 @@
 /*
   Миксин для настроек плавности интерактивных элементов
 */
-@mixin trans-config ($tProp, $tDur: 0.15s, $tTimingFunc: ease) {
+@mixin trans-config ($t-props, $t-dur: 0.15s, $t-timing-func: ease) {
   transition: {
-    property: $tProp;
-    duration: $tDur;
-    timing-function: $tTimingFunc;
+    property: $t-props;
+    duration: $t-dur;
+    timing-function: $t-timing-func;
   }
 }
 
