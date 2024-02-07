@@ -1,0 +1,9 @@
+mixin section-works(data = {})
+    section#section-works.container.section-works&attributes(attributes)
+        hgroup.section-works__title-box
+            h2.ui-title.ui-title--sem-section Works
+            p.section-works__title-desc Some of my educations and pets
+
+        ul.section-works__list
+            each work in DataWorks
+                li: +work-card(work)

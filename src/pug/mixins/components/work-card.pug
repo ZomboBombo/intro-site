@@ -1,0 +1,30 @@
+mixin work-card(data = {})
+    -
+        const tooltip = data.href ? 'Go to the project page...' : false
+        const picName = data.pic?.name || 'content/content-selfie'
+        const picExt = data.pic?.ext || 'png'
+        const picAlt = data.pic?.alt || false
+
+    article.work-card&attributes(attributes)
+        a.work-card__wrap(
+            href=data.href
+            title=tooltip
+            aria-label=tooltip
+        )
+            +picture({
+                width: 350,
+                height: 350,
+                name: picName,
+                ext: picExt,
+                alt: picAlt,
+            }).work-card__pic
+
+            .work-card__info
+                hgroup.work-card__title-box
+                    h3.work-card__title= data.title
+                    p.work-card__title-desc= data.desc
+
+                if data.tags
+                    ul.work-card__tags-list
+                        each tag in data.tags
+                            li.work-card__tag ##{tag}
