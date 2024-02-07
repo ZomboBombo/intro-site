@@ -28,8 +28,8 @@
     &__title {
         position: absolute;
         top: 0;
-        left: 100%;
-        translate: calc(-100% - 2rem) -50%;
+        left: 2rem;
+        translate: 0 -50%;
         z-index: 1;
         font-size: $sc-title-size;
         border: 0.2rem solid var(--ui-secondary);
@@ -42,11 +42,18 @@
         gap: 2.4rem;
     }
 
+    &__list-item {
+        display: flex;
+        align-items: center;
+    }
+
     &__skill {
         position: relative;
         margin: 0;
         padding: 0.6rem 2.4rem;
         font-size: 4.8rem;
+        line-height: 1;
+        word-spacing: -0.1ch;
         color: var(--ui-secondary);
         background-color: var(--ui-primary-shade-2);
         border: 0.2rem solid var(--color-def-transparent);
@@ -101,6 +108,9 @@
     }
 
     &__props {
+        --props-gap-vertical: 1.2rem;
+        --props-gap-horizontal: 2.4rem;
+
         @include reset-list;
         position: absolute;
         inset: 0;
@@ -109,7 +119,9 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 1.2rem;
+        gap:
+            var(--props-gap-vertical)
+            var(--props-gap-horizontal);
         width: $sc-tooltip-width;
         height: auto;
         min-height: max-content;
@@ -127,11 +139,20 @@
     }
 
     &__props-item {
+        position: relative;
+        isolation: isolate;
         font-size: 2.2rem;
         color: var(--ui-primary);
 
         &:not(:last-child)::after {
-            content: '/';
+            $shift: calc(var(--props-gap-horizontal) / 2);
+
+            content: '•';
+            position: absolute;
+            top: 50%;
+            left: calc(100% + $shift);
+            translate: -50% -50%;
+            z-index: 1;
         }
     }
 }
