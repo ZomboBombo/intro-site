@@ -4,8 +4,8 @@
 .section-skills {
     @include fullwidth-bg(var(--ui-secondary));
     padding: {
-        block-start: 6.4rem;
-        block-end: 6.4rem;
+        block-start: 12rem;
+        block-end: 12rem;
     };
 
     &__title-box {
