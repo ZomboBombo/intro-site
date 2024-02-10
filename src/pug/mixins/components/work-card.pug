@@ -1,13 +1,16 @@
 mixin work-card(data = {})
     -
-        const tooltip = data.href ? 'Go to the project page...' : false
-        const picName = data.pic?.name || 'content/content-selfie'
+        const tag = data.href ? 'a' : 'button'
+        const type = data.href ? false : 'button'
+        const tooltip = data.href ? 'Go to the project page' : 'Open project detail info'
+        const picName = data.pic?.name || 'content/pic-placeholder'
         const picExt = data.pic?.ext || 'png'
         const picAlt = data.pic?.alt || false
 
     article.work-card&attributes(attributes)
-        a.work-card__wrap(
+        #{tag}.work-card__wrap(
             href=data.href
+            type=type
             title=tooltip
             aria-label=tooltip
         )

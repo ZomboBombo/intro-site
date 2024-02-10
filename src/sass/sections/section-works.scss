@@ -1,4 +1,22 @@
+@use "../system/mixins" as *;
+
+
 .section-works {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6.4rem;
+    padding: {
+        block-start: 12rem;
+        block-end: 12rem;
+    };
+
+    &__list {
+        @include reset-list;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+
     &__title-box {
         display: flex;
         flex-direction: column;
