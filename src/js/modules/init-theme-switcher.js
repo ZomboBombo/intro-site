@@ -26,8 +26,8 @@ export default function initThemeSwitcher() {
 
 
     /*
-    Init of Main Class Logic
-  */
+        Init of Main Class Logic
+    */
     new ThemeSwitcher();
 }
 
