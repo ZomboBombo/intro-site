@@ -16,7 +16,7 @@ export default {
     },
     js: {
       root: './src/js/',
-      main_file: './src/js/common.js',
+      main_file: './src/js/main.js',
     },
     fonts: './src/fonts/',
     img: './src/img/',
