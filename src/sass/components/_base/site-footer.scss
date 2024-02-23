@@ -9,8 +9,8 @@
     margin: 0;
     margin-block-start: auto;
     padding:
-        var(--gap-inner-def-vertical)
-        var(--gap-inner-def-horizontal);
+        var(--gap-def-ver)
+        var(--gap-def-hor);
     border-top: 0.2rem solid var(--ui-secondary);
 
     &__nav-menu {
