@@ -7,10 +7,14 @@
     //
     // => [ui]
     --ui-primary: hsl(272 58% 6%);
+    --ui-primary-trans050: hsl(272 58% 6% / 0.5);
+    --ui-primary-trans025: hsl(272 58% 6% / 0.25);
     --ui-primary-shade-1: hsl(271 74% 6%);
     --ui-primary-shade-2: hsl(271 34% 15%);
     --ui-primary-shade-3: hsl(271 34% 35%);
     --ui-secondary: hsl(260 90% 81%);
+    --ui-secondary-trans050: hsl(260 90% 81% / 0.5);
+    --ui-secondary-trans025: hsl(260 90% 81% / 0.25);
     --ui-secondary-shade-1: hsl(260 90% 71%);
     --ui-secondary-shade-2: hsl(260 90% 61%);
     --ui-secondary-shade-3: hsl(260 90% 55%);
@@ -21,8 +25,8 @@
     --cs-light: var(--ui-secondary);
 
     // Gaps
-    --gap-inner-def-vertical: 1.25rem;
-    --gap-inner-def-horizontal: 2rem;
+    --gap-def-ver: 1.25rem;
+    --gap-def-hor: 2rem;
 
     // Width
     --w-min: 37.5rem;
@@ -37,12 +41,15 @@
 $media-end:                                       375px;
 $media-phone:                                     480px;
 $media-smartphone:                                620px;
-$media-w768:                                      768px;
 $media-notebook:                                  960px;
 $media-desktop:                                   1024px;
 $media-hd:                                        1280px;
 $media-hd-plus:                                   1440px;
 $media-fullhd:                                    1920px;
+$media-w768:                                      768px;
+$media-w1024:                                     1024px;
+$media-w1280:                                     1280px;
+$media-w1440:                                     1440px;
 
 /*
   Retina
@@ -51,7 +58,7 @@ $retina-dpi:                                      144dpi;
 $retina-dppx:                                     1.5dppx;
 
 /*
-  Z-indexes
+  Z-index
 */
 $z-header:                                        99;
 $z-drops:                                         999;
