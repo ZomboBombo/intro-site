@@ -1,10 +1,11 @@
-document.addEventListener('DOMContentLoaded', () => {});
+import initBurgerMenu from './modules/init-burger-menu'
+
+document.addEventListener('DOMContentLoaded', () => {
+    initBurgerMenu()
+})
 
 /*
   В 'load' добавляются скрипты,
   не участвующие в работе первого экрана
 */
-window.addEventListener('load', () => {
-    // eslint-disable-next-line no-console
-    console.log('---from `load` event');
-});
+window.addEventListener('load', () => {})
