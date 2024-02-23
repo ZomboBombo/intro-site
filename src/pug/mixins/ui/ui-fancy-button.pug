@@ -1,22 +1,12 @@
 mixin ui-fancy-button(data = {})
     -
-        const isLink = data.href
-        const title = data.title || false
+        const tag = data.href ? 'a' : 'button'
+        const type = data.href ? false : data.type || 'button'
 
-    if isLink
-        a.ui-fancy-button(
-            href=data.href
-            title=title
-            aria-label=title
-            value=data.text
-        )&attributes(attributes) #{data.text}
-            | #{data.text}
-
-    else
-        button.ui-fancy-button(
-            type=data.type
-            title=title
-            aria-label=title
-            value=data.text
-        )&attributes(attributes)
-            | #{data.text}
+    #{tag}.ui-fancy-button(
+        type=type
+        title=data.tooltip
+        aria-label=data.tooltip
+        value=data.text
+    )&attributes(attributes)
+        | #{data.text}
