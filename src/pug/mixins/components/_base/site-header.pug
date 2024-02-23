@@ -1,14 +1,14 @@
 mixin site-header(data = {})
     header.site-header&attributes(attributes)
         nav.site-header__nav
-            a.site-header__logo(href="")
+            a.site-header__logo(href="/")
                 +icon({
                     width: 100,
                     height: 100,
                     name: 'icon-logo',
                 })
 
-            menu.site-header__nav-menu
+            menu.site-header__nav-menu(data-burger-menu="menu")
                 each navItem in DataMainNavigation
                     -
                         const href = navItem.href || '#'
@@ -19,3 +19,12 @@ mixin site-header(data = {})
                             href=href
                             aria-label=tooltip
                         )= navItem.text
+
+            button.site-header__burger(
+                type="button"
+                aria-label="Open Nav Menu"
+                aria-pressed="false"
+                data-burger-menu="burger"
+                data-burger-tt-close="Open Nav Menu"
+                data-burger-tt-open="CLose Nav Menu"
+            ) Nav Menu Trigger
