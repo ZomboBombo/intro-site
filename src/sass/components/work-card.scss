@@ -132,6 +132,15 @@
         background-color: var(--ui-primary-shade-3);
         border-radius: 1.2rem;
     }
+
+
+    /*
+        === Media ===
+    */
+    @include media(w1024) {
+        width: 100%;
+        min-width: auto;
+    }
 }
 
 

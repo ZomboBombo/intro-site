@@ -155,4 +155,19 @@
             z-index: 1;
         }
     }
+
+
+    /*
+        === Media ===
+    */
+    @include media(w1024) {
+        &__title {
+            left: 50%;
+            translate: -50% -50%;
+        }
+
+        &__skill {
+            font-size: 4rem;
+        }
+    }
 }

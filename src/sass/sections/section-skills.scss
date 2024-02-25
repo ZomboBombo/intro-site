@@ -4,9 +4,10 @@
 .section-skills {
     @include fullwidth-bg(var(--ui-secondary));
     padding: {
-        block-start: 12rem;
-        block-end: 12rem;
+        block-start: var(--gap-section-ver);
+        block-end: var(--gap-section-ver);
     };
+    scroll-margin-block-start: var(--gap-section-ver);
 
     &__title-box {
         margin: 0;
@@ -42,5 +43,27 @@
         grid-template-columns: repeat(4, 1fr);
         column-gap: 2.4rem;
         row-gap: 4.8rem;
+    }
+
+
+    /*
+        === Media ===
+    */
+    @include media(w1024) {
+        &__title-box {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.4rem;
+        }
+
+        &__quote {
+            font-size: 2.4rem;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+            row-gap: 9.6rem;
+        }
     }
 }

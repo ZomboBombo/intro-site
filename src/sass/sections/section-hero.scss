@@ -1,5 +1,6 @@
 @use '../system/mixins' as *;
 
+
 .section-hero {
     box-sizing: content-box;
     display: grid;
@@ -9,7 +10,8 @@
     max-width: 100rem;
     margin: 0;
     margin-inline: auto;
-    padding: 12rem 2.5rem;
+    padding: var(--gap-section-ver) 2.5rem;
+    scroll-margin-block-start: var(--gap-section-ver);
 
     &__title-box {
         display: contents;
@@ -21,7 +23,6 @@
         flex-direction: column;
         align-items: start;
         row-gap: 0.8rem;
-        font-size: 4.8rem;
         font: {
             size: 6.4rem;
             weight: 700;
@@ -51,14 +52,61 @@
             row: 2;
         };
         display: block;
-        width: 35rem;
-        height: 35rem;
+        width: 100%;
+        max-width: 35rem;
+        height: 100%;
         background-color: var(--ui-primary-shade-2);
         border-radius: 0.8rem;
         overflow: hidden;
 
         img {
             @include pictured-image;
+        }
+    }
+
+
+    /*
+        === Media ===
+    */
+    @include media(w1024) {
+        $fs-w1024: clamp(2.4rem, 4.685vw, 3.2rem);
+
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        max-width: 100%;
+
+        &__title-box {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2.4rem;
+        }
+
+        &__title {
+            font-size: $fs-w1024;
+
+            code {
+                align-self: start;
+                font-size: 1.4em;
+            }
+        }
+
+        &__title-desc {
+            row-gap: 2.4rem;
+            transform: none;
+            font-size: $fs-w1024;
+        }
+
+        &__title-desc-text {
+            line-break: auto;
+
+            code {
+                white-space: normal;
+            }
+        }
+
+        &__pic {
+            max-width: 100%;
         }
     }
 }

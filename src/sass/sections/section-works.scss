@@ -6,16 +6,10 @@
     flex-direction: column;
     row-gap: 6.4rem;
     padding: {
-        block-start: 12rem;
-        block-end: 12rem;
+        block-start: var(--gap-section-ver);
+        block-end: var(--gap-section-ver);
     };
-
-    &__list {
-        @include reset-list;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.2rem;
-    }
+    scroll-margin-block-start: var(--gap-section-ver);
 
     &__title-box {
         display: flex;
@@ -27,5 +21,28 @@
         margin: 0;
         padding: 0;
         font-size: 3.2rem;
+    }
+
+    &__list {
+        @include reset-list;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+
+
+    /*
+        === Media ===
+    */
+    @include media(w1024) {
+        &__title-box {
+            row-gap: 2.4rem;
+            align-items: start;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }

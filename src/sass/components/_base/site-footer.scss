@@ -88,4 +88,25 @@
         font-size: 1.6rem;
         text-align: end;
     }
+
+
+    /*
+        === Media ===
+    */
+    @include media(w1024) {
+        &__nav,
+        &__nav-menu-item {
+            width: 100%;
+        }
+
+        &__nav-menu {
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        &__copyright {
+            width: 100%;
+            text-align: center;
+        }
+    }
 }
