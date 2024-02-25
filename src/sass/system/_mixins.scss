@@ -48,6 +48,21 @@
 
 
 /*
+    <...> для улучшения UX после :hover
+    на тач-устройствах
+*/
+@mixin media-touch-hover($element) {
+    @media (hover: hover) {
+        #{$element}:is(:hover, :focus-visible) { @content; }
+    }
+
+    @media (hover: none) {
+        #{$element}:active { @content; }
+    }
+}
+
+
+/*
   Универсальный миксин для медиа-запросов
 */
 @mixin media($media) {

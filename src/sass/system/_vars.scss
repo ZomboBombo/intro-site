@@ -27,11 +27,20 @@
     // Gaps
     --gap-def-ver: 1.25rem;
     --gap-def-hor: 2rem;
+    --gap-section-ver: 12rem;
 
     // Width
     --w-min: 37.5rem;
     --w-1440: 144rem;
     --w-max: 192rem;
+
+
+    /*
+        === Media ===
+    */
+    @media screen and (max-width: 1023px) {
+        --gap-section-ver: 6rem;
+    }
 }
 
 
