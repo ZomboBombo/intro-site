@@ -1,7 +1,7 @@
-mixin icon(props = {})
-  svg(
-    width= props.width
-    height= props.height
-    aria-hidden="true"
-  )&attributes(attributes)
-    use(href= `#${props.name}`)
+mixin icon(data = {})
+    svg(
+        width=data.width
+        height=data.height
+        aria-hidden="true"
+    )&attributes(attributes)
+        use(href= `#${data.name}`)

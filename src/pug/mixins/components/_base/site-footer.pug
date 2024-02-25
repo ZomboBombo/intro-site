@@ -1,0 +1,19 @@
+mixin site-footer(data = {})
+    footer.site-footer&attributes(attributes)
+        nav.site-footer__nav
+            menu.site-footer__nav-menu
+                each navItem in DataSocialsNavigation
+                    -
+                        const href = navItem.href || '#'
+                        const tooltip = navItem.tooltip || false
+
+                    li.site-footer__nav-menu-item
+                        a.site-footer__nav-menu-link(
+                            href=href
+                            aria-label=tooltip
+                            value=navItem.text
+                        )= navItem.text
+
+        small.site-footer__copyright
+            span.site-footer__copyright-text &copy; Copyright 2024.
+            strong.site-footer__copyright-text Made with love by Sergey Novikov.

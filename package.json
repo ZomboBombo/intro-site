@@ -1,6 +1,6 @@
 {
   "name": "intro-site",
-  "version": "1.0.0",
+  "version": "2.0",
   "description": "Intro-Site by Sergey Novikov",
   "scripts": {
     "stylelint": "stylelint \"src/sass/**/*.scss\" --custom-syntax postcss-scss",
@@ -24,6 +24,7 @@
     "@babel/eslint-parser": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
     "@babel/register": "^7.21.0",
+    "@stylistic/eslint-plugin-js": "^1.6.1",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
     "browser-sync": "^2.27.11",
@@ -56,8 +57,6 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
-    "body-scroll-lock": "^4.0.0-beta.0",
-    "inputmask": "^5.0.7",
-    "swiper": "^8.4.5"
+    "body-scroll-lock": "^4.0.0-beta.0"
   }
 }

@@ -9,7 +9,6 @@
 @forward "system/core";
 
 // --- Вендоры ---
-@forward "../../node_modules/swiper/swiper";
 
 
 /***
@@ -23,16 +22,17 @@
 ** 3. UI-стили
 ***/
 @forward "ui/ui-fancy-button";
-@forward "ui/ui-skills";
+@forward "ui/ui-code";
+@forward "ui/ui-title";
 
 
 /***
 ** 4. Компоненты
 ***/
-@forward "components/site-header";
-@forward "components/site-footer";
-@forward "components/theme-switcher";
-
+@forward "components/_base/site-header";
+@forward "components/_base/site-footer";
+@forward "components/skill-card";
+@forward "components/work-card";
 
 /***
 ** 5. Проектные стили

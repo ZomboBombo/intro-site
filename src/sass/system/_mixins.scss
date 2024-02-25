@@ -2,19 +2,29 @@
 
 
 /*
-  Миксин для настроек плавности интерактивных элементов
+    <...> для сброса стилей списков
 */
-@mixin trans-config ($property, $duration: 0.325s, $timing-func: ease) {
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+/*
+    <...> для настроек плавности интерактивных элементов
+*/
+@mixin trans-config ($t-props, $t-dur: 0.15s, $t-timing-func: ease) {
   transition: {
-    property: $property;
-    duration: $duration;
-    timing-function: $timing-func;
+    property: $t-props;
+    duration: $t-dur;
+    timing-function: $t-timing-func;
   }
 }
 
 
 /*
-  Стили для изображений внутри <picture>
+    <...> для изображений внутри <picture>
 */
 @mixin pictured-image {
   display: block;
@@ -22,6 +32,33 @@
   height: 100%;
   object-fit: cover;
   object-position: center center;
+}
+
+
+/*
+    <...> для добавления фона на всю ширину
+    для блоков, находящизся внутри семантических
+    wrapper-блоков на странице.
+*/
+@mixin fullwidth-bg($bg-color) {
+    background-color: $bg-color;
+    box-shadow: 0 0 0 100vmax $bg-color;
+    clip-path: inset(0 -100vmax);
+}
+
+
+/*
+    <...> для улучшения UX после :hover
+    на тач-устройствах
+*/
+@mixin media-touch-hover($element) {
+    @media (hover: hover) {
+        #{$element}:is(:hover, :focus-visible) { @content; }
+    }
+
+    @media (hover: none) {
+        #{$element}:active { @content; }
+    }
 }
 
 
@@ -93,5 +130,33 @@
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
       @content;
     }
+  }
+
+  @else if $media == w768 {
+    @media only screen and (max-width: calc($media-w768 - 1px)) { @content; }
+  }
+  @else if $media == w768-min {
+    @media only screen and (min-width: calc($media-w768 + 1px)) { @content; }
+  }
+
+  @else if $media == w1024 {
+    @media only screen and (max-width: calc($media-w1024 - 1px)) { @content; }
+  }
+  @else if $media == w1024-min {
+    @media only screen and (min-width: calc($media-w1024 + 1px)) { @content; }
+  }
+
+  @else if $media == w1280 {
+    @media only screen and (max-width: calc($media-w1280 - 1px)) { @content; }
+  }
+  @else if $media == w1280-min {
+    @media only screen and (min-width: calc($media-w1280 + 1px)) { @content; }
+  }
+
+  @else if $media == w1440 {
+    @media only screen and (max-width: calc($media-w1440 - 1px)) { @content; }
+  }
+  @else if $media == w1440-min {
+    @media only screen and (min-width: calc($media-w1440 + 1px)) { @content; }
   }
 }
