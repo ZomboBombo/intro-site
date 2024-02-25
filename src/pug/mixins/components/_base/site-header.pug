@@ -18,6 +18,7 @@ mixin site-header(data = {})
                         a.site-header__nav-menu-link(
                             href=href
                             aria-label=tooltip
+                            data-burger-menu="link"
                         )= navItem.text
 
             button.site-header__burger(

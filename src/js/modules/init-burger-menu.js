@@ -18,7 +18,9 @@ export default function initBurgerMenu() {
         init() {
             const resetMq = window.matchMedia('(max-width: 1023px)')
 
-            this.#burger.addEventListener('click', this.#onBurgerClick)
+            this.#burger.addEventListener('click', this.#onClickBurger)
+            this.#menu.addEventListener('click', this.#onCLickInsideMenu)
+
             resetMq.addEventListener('change', this.#onResetState)
         }
 
@@ -38,8 +40,19 @@ export default function initBurgerMenu() {
             setTimeout(() => this.#menu.removeAttribute('style'), 0)
         }
 
-        #onBurgerClick = (evt) => {
+        #onClickBurger = (evt) => {
             evt.preventDefault()
+            this.#changeState()
+        }
+
+        #onCLickInsideMenu = (evt) => {
+            const isLink = typeof evt.target.closest('[data-burger-menu="link]') !== 'undefined'
+
+            if (!isLink) {
+                evt.preventDefault()
+                return
+            }
+
             this.#changeState()
         }
     }

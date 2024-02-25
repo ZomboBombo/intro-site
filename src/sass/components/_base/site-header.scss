@@ -9,7 +9,7 @@
 }
 
 .site-header {
-    position: fixed;
+    position: sticky;
     isolation: isolate;
     inset: 0;
     bottom: auto;
@@ -63,6 +63,7 @@
             var(--nm-link-gap)
             5rem;
         border-radius: var(--nm-brd-rad);
+        -webkit-tap-highlight-color: var(--color-def-transparent);
 
         $t-propss: color, background-color;
         @include trans-config($t-propss);
@@ -86,6 +87,7 @@
         border: 0.2rem solid var(--ui-secondary);
         border-radius: 0.8rem;
         cursor: pointer;
+        -webkit-tap-highlight-color: var(--color-def-transparent);
 
         $t-props: background-color, opacity;
         @include trans-config($t-props);
@@ -126,17 +128,6 @@
             box-shadow: 0 -0.6rem 0 0 var(--ui-secondary);
         }
 
-        &:where(:hover, :focus-visible) {
-            background-color: var(--ui-secondary-trans025);
-
-            &::before {
-                box-shadow: 0 0.7rem 0 0 var(--ui-secondary);
-            }
-            &::after {
-                box-shadow: 0 -0.7rem 0 0 var(--ui-secondary);
-            }
-        }
-
         &:active {
             opacity: 0.75;
 
@@ -144,6 +135,17 @@
             &::after {
                 rotate: 0deg;
                 box-shadow: 0 0 0 0 var(--ui-secondary);
+            }
+        }
+
+        @include media-touch-hover(#{&}) {
+            background-color: var(--ui-secondary-trans025);
+
+            &::before {
+                box-shadow: 0 0.7rem 0 0 var(--ui-secondary);
+            }
+            &::after {
+                box-shadow: 0 -0.7rem 0 0 var(--ui-secondary);
             }
         }
     }
