@@ -8,11 +8,11 @@
 }
 
 
-.work-card {
+.pet-card {
     $wc-root: #{&};
 
     width: 100%;
-    min-width: max-content;
+    height: 100%;
 
     &__wrap {
         position: relative;
@@ -20,6 +20,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        height: 100%;
         background-color: var(--ui-secondary);
         border-radius: 2.4rem;
         outline: 0.2rem solid var(--ui-primary);
@@ -49,7 +50,7 @@
             border-radius: inherit;
             opacity: 0;
             animation: {
-                name: work-card-animation;
+                name: pet-card-animation;
                 duration: 8s;
                 timing-function: linear;
                 iteration-count: infinite;
@@ -95,6 +96,7 @@
         display: flex;
         flex-direction: column;
         row-gap: 2.4rem;
+        height: 100%;
         margin: 0;
         padding: 1.2rem;
         background-color: var(--ui-primary);
@@ -106,6 +108,12 @@
         };
     }
 
+    &__title-box {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.2rem;
+    }
+
     &__title {
         font-size: 4.8rem;
     }
@@ -114,12 +122,13 @@
         font-size: 2.4rem;
     }
 
-    &__tags-list {
+    &__tags {
         display: flex;
         flex-wrap: wrap;
         justify-content: end;
         align-items: center;
         gap: 1.2rem;
+        margin-block-start: auto;
     }
 
     &__tag {
@@ -145,7 +154,7 @@
 
 
 
-@keyframes work-card-animation {
+@keyframes pet-card-animation {
     0% {
         --gradient-angle: 0deg;
     }
