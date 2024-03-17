@@ -26,7 +26,7 @@
     &__list {
         @include reset-list;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(var(--w-card-min), 1fr));
         gap: 1.2rem;
 
         li {
@@ -43,11 +43,6 @@
         &__title-box {
             row-gap: 2.4rem;
             align-items: start;
-        }
-
-        &__list {
-            display: flex;
-            flex-direction: column;
         }
     }
 }

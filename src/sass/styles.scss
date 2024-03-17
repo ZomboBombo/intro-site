@@ -1,54 +1,54 @@
 /***
-** 1. Служебные стили
+** 1. Core styles
 ***/
 
-// --- Глобальные ---
+// --- System ---
 @forward "system/reset";
 @forward "system/fonts";
 @forward "system/vars";
 @forward "system/core";
 
-// --- Вендоры ---
+// --- Vendors ---
 
 
 /***
-** 2. Утилиты
+** 2. Utils
 ***/
 @forward "utils/helpers";
 @forward "utils/container";
 
 
 /***
-** 3. UI-стили
+** 3. UI
 ***/
 @forward "ui/ui-fancy-button";
 @forward "ui/ui-code";
 @forward "ui/ui-title";
+@forward "ui/ui-wip-gears";
 
 
 /***
-** 4. Компоненты
+** 4. Project styles
 ***/
+
+// 4.1 Components
 @forward "components/_base/site-header";
 @forward "components/_base/site-footer";
 @forward "components/skill-card";
 @forward "components/pet-card";
+@forward "components/pet-card-wip";
 
-/***
-** 5. Проектные стили
-***/
-
-// 5.1: Секции
+// 4.2: Sections
 @forward "sections";
 
-// 5.2: Блоки
+// 4.3: Blocks
 @forward "blocks";
 
 
 /***
-** 6. "Эксклюзивные" стили
+** 6. "Exclusives"
 ***/
 /*
- * --- Используются только на служебных страницах проекта
- * --- наподобие "UI-kit" или "Сайтмапы".
+ * --- Used only on service pages of project
+ * --- like the "UI-kit" or the "Sitemap"
  */

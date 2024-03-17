@@ -40,7 +40,7 @@
     &__list {
         @include reset-list;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(var(--w-card-min), 1fr));
         column-gap: 2.4rem;
         row-gap: 4.8rem;
     }
@@ -58,12 +58,6 @@
 
         &__quote {
             font-size: 2.4rem;
-        }
-
-        &__list {
-            display: flex;
-            flex-direction: column;
-            row-gap: 9.6rem;
         }
     }
 }

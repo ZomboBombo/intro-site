@@ -5,5 +5,8 @@ mixin section-pets(data = {})
             p.section-pets__title-desc My favorite pets
 
         ul.section-pets__list
-            each work in DataPets
-                li: +pet-card(work)
+            each pet in DataPets
+                if pet.isWip
+                    li: +pet-card-wip()
+                else
+                    li: +pet-card(pet)
