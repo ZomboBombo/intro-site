@@ -166,6 +166,10 @@
             translate: -50% -50%;
         }
 
+        &__list {
+            flex-direction: column;
+        }
+
         &__skill {
             font-size: 4rem;
         }

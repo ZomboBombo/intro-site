@@ -29,46 +29,42 @@
     --gap-def-hor: 2rem;
     --gap-section-ver: 12rem;
 
-    // Width
+    // Sizes
     --w-min: 37.5rem;
-    --w-1440: 144rem;
     --w-max: 192rem;
-
+    --w-1440: 144rem;
+    --w-card-min: 32rem;
 
     /*
         === Media ===
     */
-    @media screen and (max-width: 1023px) {
+    @media only screen and (max-width: 1023px) {
         --gap-section-ver: 6rem;
     }
-}
 
+    @media only screen and (max-width: 420px) {
+        --w-card-min: 24rem;
+    }
+}
 
 /*
   Media
 */
-$media-end:                                       375px;
-$media-phone:                                     480px;
-$media-smartphone:                                620px;
-$media-notebook:                                  960px;
-$media-desktop:                                   1024px;
-$media-hd:                                        1280px;
-$media-hd-plus:                                   1440px;
-$media-fullhd:                                    1920px;
-$media-w768:                                      768px;
-$media-w1024:                                     1024px;
-$media-w1280:                                     1280px;
-$media-w1440:                                     1440px;
+
+$media-w768: 768px;
+$media-w1024: 1024px;
+$media-w1280: 1280px;
+$media-w1440: 1440px;
 
 /*
   Retina
 */
-$retina-dpi:                                      144dpi;
-$retina-dppx:                                     1.5dppx;
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
 
 /*
   Z-index
 */
-$z-header:                                        99;
-$z-drops:                                         999;
-$z-modals:                                        9999;
+$z-header: 99;
+$z-drops: 999;
+$z-modals: 9999;

@@ -2,6 +2,8 @@
 
 
 .section-hero {
+    $fs-w1024: clamp(2.4rem, 4.685vw, 3.2rem);
+
     box-sizing: content-box;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -69,8 +71,26 @@
         === Media ===
     */
     @include media(w1024) {
-        $fs-w1024: clamp(2.4rem, 4.685vw, 3.2rem);
+        width: auto;
 
+        &__title {
+            flex-direction: row;
+            align-items: center;
+            column-gap: 2.4rem;
+            font-size: $fs-w1024;
+
+            code {
+                align-self: start;
+                font-size: 1.4em;
+            }
+        }
+
+        &__title-desc {
+            transform: none;
+        }
+    }
+
+    @include media(w768) {
         display: flex;
         flex-direction: column;
         width: auto;
@@ -83,12 +103,8 @@
         }
 
         &__title {
-            font-size: $fs-w1024;
-
-            code {
-                align-self: start;
-                font-size: 1.4em;
-            }
+            flex-direction: column;
+            align-items: start;
         }
 
         &__title-desc {
