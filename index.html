@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Главная</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <!-- Размер дефолтной фавиконки: 32x32-->
+    <link rel="icon" href="./favicon.ico">
+    <link rel="icon" href="./favicons/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./favicons/apple-touch-icon.png">
+    <link rel="manifest" href="./favicons/manifest.webmanifest" crossorigin="use-credentials">
+    <!-- Прелоад шрифтов-->
+    <link rel="preload" href="./fonts/inconsolata/Inconsolata-Regular.woff2" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.min.css">
+  </head>
+  <body>
+    <script>
+      (async () => {
+          const sprite = await fetch('./img/sprite.svg');
+          const div = document.createElement('div');
+          div.className = 'visually-hidden';
+          div.innerHTML = await sprite.text();
+          document.body.insertBefore(div, document.body.childNodes[0]);
+      })();
+    </script>
+    <header class="site-header">
+      <nav class="site-header__nav"><a class="site-header__logo" href="/">
+          <svg width="100" height="100" aria-hidden="true">
+            <use href="#icon-logo"></use>
+          </svg></a>
+        <menu class="site-header__nav-menu" data-burger-menu="menu">
+          <li class="site-header__nav-menu-item"><a class="site-header__nav-menu-link" href="#section-about" aria-label="Info about me" data-burger-menu="link">About</a></li>
+          <li class="site-header__nav-menu-item"><a class="site-header__nav-menu-link" href="#section-skills" aria-label="Info about my skills" data-burger-menu="link">Skills</a></li>
+          <li class="site-header__nav-menu-item"><a class="site-header__nav-menu-link" href="#section-pets" aria-label="Info about my pet-projects" data-burger-menu="link">Pets</a></li>
+        </menu>
+        <button class="site-header__burger" type="button" aria-label="Open Nav Menu" aria-pressed="false" data-burger-menu="burger" data-burger-tt-close="Open Nav Menu" data-burger-tt-open="CLose Nav Menu">Nav Menu Trigger</button>
+      </nav>
+    </header>
+    <main>
+      <section class="section-hero" id="section-about">
+        <hgroup class="section-hero__title-box">
+          <h1 class="section-hero__title">Hi! I'm a <code class="ui-code">&lt;Sergey Novikov&gt;</code></h1>
+          <p class="section-hero__title-desc"><span class="section-hero__title-desc-text">A frontend-dev, fan of <code class="ui-code">&lt;coffee&gt;</code>, <code class="ui-code">&lt;metroidvanias&gt;</code> and <code class="ui-code">&lt;kettlebells&gt;</code>.</span><span class="section-hero__title-desc-text">Since 2018 bring static designs to life in the Internet.</span></p>
+        </hgroup>
+        <picture class="section-hero__pic">
+          <source type="image/webp" srcset="./img/content/content-selfie.webp, ./img/content/content-selfie@2x.webp 2x"><img src="./img/content/content-selfie.png" srcset="./img/content/content-selfie@2x.png" width="350" height="350" alt="It's me, hi!">
+        </picture>
+      </section>
+      <section class="container section-skills" id="section-skills">
+        <div class="section-skills__title-box">
+          <h2 class="ui-title ui-title--sem-section">Skills</h2>
+          <div class="section-skills__quote">
+            <blockquote class="section-skills__quote-text">«It's more useful to know a few wise rules that could always serve you than to learn many things that are useless to you...»</blockquote><em class="section-skills__quote-auth">— Some clever philosopher</em>
+          </div>
+        </div>
+        <ul class="section-skills__list">
+          <li>
+            <article class="skill-card"><code class="ui-code skill-card__title">
+                <h3>&lt;markup&gt;</h3></code>
+              <ul class="skill-card__list">
+                <li class="skill-card__list-item">
+                  <button class="skill-card__skill skill-card__skill--has-props" type="button" aria-label="Hover to show the skill properties">vanilla html
+                    <ol class="skill-card__props">
+                      <li class="skill-card__props-item">semantic</li>
+                      <li class="skill-card__props-item">a11y</li>
+                      <li class="skill-card__props-item">SEO</li>
+                      <li class="skill-card__props-item">micromarkup</li>
+                    </ol>
+                  </button>
+                </li>
+                <li class="skill-card__list-item"><strong class="skill-card__skill">pug</strong></li>
+                <li class="skill-card__list-item"><strong class="skill-card__skill">nunjucks</strong></li>
+              </ul>
+            </article>
+          </li>
+          <li>
+            <article class="skill-card"><code class="ui-code skill-card__title">
+                <h3>&lt;styles&gt;</h3></code>
+              <ul class="skill-card__list">
+                <li class="skill-card__list-item">
+                  <button class="skill-card__skill skill-card__skill--has-props" type="button" aria-label="Hover to show the skill properties">vanilla css
+                    <ol class="skill-card__props">
+                      <li class="skill-card__props-item">bem</li>
+                      <li class="skill-card__props-item">custom properties</li>
+                      <li class="skill-card__props-item">modern css standards (w3c)</li>
+                    </ol>
+                  </button>
+                </li>
+                <li class="skill-card__list-item"><strong class="skill-card__skill">scss</strong></li>
+              </ul>
+            </article>
+          </li>
+          <li>
+            <article class="skill-card"><code class="ui-code skill-card__title">
+                <h3>&lt;scripts&gt;</h3></code>
+              <ul class="skill-card__list">
+                <li class="skill-card__list-item">
+                  <button class="skill-card__skill skill-card__skill--has-props" type="button" aria-label="Hover to show the skill properties">vanilla js
+                    <ol class="skill-card__props">
+                      <li class="skill-card__props-item">ES5 &amp; ES6</li>
+                    </ol>
+                  </button>
+                </li>
+              </ul>
+            </article>
+          </li>
+          <li>
+            <article class="skill-card"><code class="ui-code skill-card__title">
+                <h3>&lt;build&gt;</h3></code>
+              <ul class="skill-card__list">
+                <li class="skill-card__list-item"><strong class="skill-card__skill">webpack</strong></li>
+                <li class="skill-card__list-item"><strong class="skill-card__skill">gulp</strong></li>
+              </ul>
+            </article>
+          </li>
+        </ul>
+      </section>
+      <section class="container section-pets" id="section-pets">
+        <hgroup class="section-pets__title-box">
+          <h2 class="ui-title ui-title--sem-section">Pets</h2>
+          <p class="section-pets__title-desc">My favorite pets</p>
+        </hgroup>
+        <ul class="section-pets__list">
+          <li>
+            <article class="pet-card">
+              <div class="pet-card__wrap">
+                <picture class="pet-card__pic">
+                  <source type="image/webp" srcset="./img/content/pet-screen--pixelart.webp, ./img/content/pet-screen--pixelart@2x.webp 2x"><img src="./img/content/pet-screen--pixelart.jpg" srcset="./img/content/pet-screen--pixelart@2x.jpg" width="350" height="350" alt="Main screen of the «Pixel Art App»">
+                </picture>
+                <div class="pet-card__info">
+                  <hgroup class="pet-card__title-box">
+                    <h3 class="pet-card__title">Pixel Art App</h3>
+                    <p class="pet-card__title-desc">Pixel drawing board</p>
+                  </hgroup>
+                  <div class="pet-card__links"><a class="pet-card__link" href="https://github.com/ZomboBombo/Pixel-Art-App" target="_blank" rel="noopener noreferrer" aria-label="Open project's repo in GitHub">&gt; Goto GitHub</a><a class="pet-card__link" href="https://zombobombo.github.io/Pixel-Art-App/" target="_blank" rel="noopener noreferrer" aria-label="Open project's demo">&gt; Watch Demo</a>
+                  </div>
+                  <ul class="pet-card__tags">
+                    <li class="pet-card__tag">#html</li>
+                    <li class="pet-card__tag">#scss</li>
+                    <li class="pet-card__tag">#js</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="pet-card">
+              <div class="pet-card__wrap">
+                <picture class="pet-card__pic">
+                  <source type="image/webp" srcset="./img/content/pet-screen--calorie-counter.webp, ./img/content/pet-screen--calorie-counter@2x.webp 2x"><img src="./img/content/pet-screen--calorie-counter.jpg" srcset="./img/content/pet-screen--calorie-counter@2x.jpg" width="350" height="350" alt="The «Calorie Counter» app">
+                </picture>
+                <div class="pet-card__info">
+                  <hgroup class="pet-card__title-box">
+                    <h3 class="pet-card__title">Calorie Counter</h3>
+                    <p class="pet-card__title-desc">A simple calorie daily norm calculator</p>
+                  </hgroup>
+                  <div class="pet-card__links"><a class="pet-card__link" href="https://github.com/ZomboBombo/cc-form" target="_blank" rel="noopener noreferrer" aria-label="Open project's repo in GitHub">&gt; Goto GitHub</a><a class="pet-card__link" href="https://zombobombo.github.io/cc-form/" target="_blank" rel="noopener noreferrer" aria-label="Open project's demo">&gt; Watch Demo</a>
+                  </div>
+                  <ul class="pet-card__tags">
+                    <li class="pet-card__tag">#pug</li>
+                    <li class="pet-card__tag">#scss</li>
+                    <li class="pet-card__tag">#js</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="pet-card-wip">
+              <h3 class="pet-card-wip__title">WORK IN PROGRESS...</h3>
+              <svg class="ui-wip-gears pet-card-wip__icon" viewBox="0 0 799 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="ui-wip-gears__gear" id="gear-1" d="M763.8 287.8L728.6 287.5L725.5 277C720.1 258.9 714.9 246.1 705.7 227.6L696.8 209.8L721.6 184.9L746.5 160L693 106.5L639.5 53L614.5 77.8L589.5 102.6L571.5 93.5C553.5 84.4 535.3 77.1 520.1 72.9L512 70.7V35.3V0H436H360V35.5C360 66.5 359.8 71 358.5 71C355.9 71 328.1 80.5 317.5 85C312 87.3 301.8 92.2 294.7 95.8L282 102.5L257.2 77.7L232.5 53L179 106.5L125.5 160L150.3 184.8L175.2 209.7L169.1 221.1C158.9 240.5 152 258.1 143.4 286.8C143.1 287.7 135.2 288 108 288H73V363.5V439L108.2 439.2L143.3 439.5L146.6 450C152.2 468.4 156.9 480 166.2 498.8L175.3 517.2L150.7 541.8L126 566.5L179.5 620L233 673.5L257.8 648.7L282.6 623.9L292 629.1C309.1 638.4 331.5 647.6 351.2 653.5L360 656.1L360.2 691.3L360.5 726.5H436H511.5L511.8 691.5L512.1 656.5L529.8 650.7C548.2 644.7 567.1 636.6 581.2 628.6L589.4 623.9L614.2 648.7L639 673.5L692.5 620L746 566.5L721.3 541.8L696.7 517.2L704.7 501.3C713.3 484.4 722.3 462 726.1 447.8L728.5 439H763.8H799V363.5V288L763.8 287.8ZM587.9 378.8C581.4 439.4 541.1 489.5 483.9 508.4C470.2 512.9 441.6 516.5 426 515.7C393.6 514 361.4 500.7 335.5 478.3C295 443.3 275.8 387.6 286 334.9C292 303.5 305.4 278.6 328.5 255.4C346.1 237.7 364.9 226 387.4 218.5C433.4 203.2 480.9 209.8 522 237.1C534.3 245.2 554.4 265.2 562.3 277.2C582.6 307.7 591.7 343.9 587.9 378.8Z" fill="currentColor"></path>
+                <path class="ui-wip-gears__gear" id="gear-2" d="M549.3 1142.8L538.6 1142.5L535.9 1134.8C534.4 1130.5 532.1 1125.1 530.7 1122.6L528.3 1118.2L536.1 1110.4L544 1102.5L527.8 1086.3C518.8 1077.3 511.1 1070 510.5 1070C509.9 1070 506.1 1073.3 502.1 1077.4L494.7 1084.9L490.6 1082.5C488.3 1081.2 483 1079 478.8 1077.5L471 1074.7V1063.9V1053H447H423V1063.8V1074.7L418.8 1075.9C416.4 1076.6 411 1078.8 406.7 1080.8L398.9 1084.3L391.7 1077.2C387.7 1073.2 384 1070 383.5 1070C383 1070 375.2 1077.3 366.3 1086.2L350 1102.5L357.7 1110.2L365.4 1117.9L361.7 1125.8C359.6 1130.1 357.4 1135.6 356.7 1138.1L355.4 1142.5L344.2 1142.8L333 1143.1V1166.5V1189.9L344.1 1190.2L355.2 1190.5L358 1198C359.5 1202.1 361.7 1207.5 362.9 1209.9L365.2 1214.3L357.4 1222.1L349.5 1230L366.3 1246.7L383 1263.5L390.9 1255.6L398.7 1247.8L404.1 1250.6C407.1 1252.1 412.4 1254.4 416 1255.6L422.5 1257.9L422.8 1269L423.1 1280H447H470.9L471.2 1269L471.5 1257.9L478 1255.6C481.6 1254.4 486.9 1252.1 489.9 1250.6L495.3 1247.8L502.9 1255.4L510.5 1263L527 1246.5L543.5 1230L536.2 1222.7C532.3 1218.7 529 1215.1 529 1214.6C529 1214.1 530.3 1211 531.9 1207.6C533.5 1204.2 535.6 1198.9 536.6 1195.8L538.4 1190H549.2H560V1166.5V1143.1L549.3 1142.8ZM491.9 1181.7C489.1 1189.8 485.9 1194.8 479.8 1200.7C452.9 1226 409.9 1213.4 400.5 1177.5C395 1156.1 406 1133.1 426.6 1123.3C433.7 1119.9 435.5 1119.5 444.3 1119.2C450.3 1118.9 455.9 1119.3 458.8 1120C485.5 1127.2 500.9 1155.7 491.9 1181.7Z" fill="currentColor"></path>
+                <path class="ui-wip-gears__gear" id="gear-3" d="M394.9 837.5C386.7 816.7 379.7 799.4 379.5 799.1C379.2 798.9 370.8 801.9 360.8 805.8C350.9 809.8 342.6 812.9 342.5 812.8C340.1 808.8 327.6 794.9 320.1 787.8L310.1 778.5L317.5 761.5C321.6 752.2 325 744 325 743.4C325 742.5 248.2 708.4 247.6 709.2C247.4 709.3 243.9 717.4 239.7 727L232.1 744.5L226.3 744C223.1 743.7 212.4 743.5 202.4 743.5H184.3L177.4 725.8C173.6 716 170.1 708 169.5 708C168.7 708 92.1 737.8 91.3 738.5C91.1 738.6 94.2 746.5 98 756C101.9 765.6 105 773.9 105 774.6C105 775.2 102.4 777.7 99.3 780.2C92.1 785.9 82.9 794.8 76.3 802.3L71.3 808.1L53.6 800.4C43.5 796 35.6 793.1 35.1 793.6C34.7 794.1 31.6 800.8 28.3 808.5C24.9 816.2 17.7 833 12.1 845.8C6.50002 858.6 2.00002 869.4 2.00002 869.9C2.00002 870.3 9.80002 874 19.2 878.2L36.5 885.7V909.7V933.7L19 940.5C9.40002 944.2 1.20002 947.6 0.800017 947.9C0.500017 948.2 1.90002 952.8 3.90002 958C6.00002 963.2 13 980.9 19.4 997.3C26.8 1016 31.6 1027 32.3 1026.7C44.7 1021.6 68.1 1012.8 68.3 1013.1C73.5 1020.7 88.8 1036.9 97.7 1044.2L100.9 1046.8L93 1064.6C88.7 1074.5 85.5 1082.8 85.8 1083.1C86.6 1083.8 159.8 1115.7 161.8 1116.2C162.7 1116.4 165.8 1110.4 170.8 1098.7L178.5 1080.8L183.5 1081.6C186.3 1082 197 1082.4 207.5 1082.4L226.4 1082.5L233.2 1099.5C236.8 1108.9 240 1116.9 240.2 1117.4C240.7 1118.5 319 1087.8 319 1086.5C319 1086 316.1 1078.2 312.5 1069.2C309 1060.3 306 1052.4 305.8 1051.7C305.6 1050.9 309.6 1046.9 314.6 1042.8C319.6 1038.6 327 1031.4 331 1026.8C335.1 1022.3 338.7 1018.4 339.1 1018.2C339.6 1018 347.9 1021.3 357.5 1025.5C367.2 1029.7 375.3 1033 375.5 1032.8C375.6 1032.6 383.2 1015.2 392.4 994.1C405.1 964.9 408.8 955.5 407.8 954.9C407.1 954.4 398.9 950.8 389.7 946.8L372.9 939.5L373.6 936.5C374 934.9 374.4 924.1 374.5 912.7L374.7 891.8L392.3 884.8C402.1 881 410 877.3 409.9 876.7C409.9 876 403.2 858.4 394.9 837.5ZM289.4 929.1C286.1 946.5 278.7 960.3 265.5 973.5C255.3 983.6 245.8 989.6 232.7 994.1C215.5 1000 199.7 1000.2 181.7 994.8C165 989.8 154.9 983.8 143.9 972.4C135.9 964 131.8 958.1 127.5 948.7C116.3 924.4 117 897.4 129.6 872.9C144 845.1 173.6 827 204.9 827C227.6 827 247.8 835.2 264.2 850.8C285.8 871.4 294.9 899.9 289.4 929.1Z" fill="currentColor"></path>
+              </svg>
+            </article>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <nav class="site-footer__nav">
+        <menu class="site-footer__nav-menu">
+          <li class="site-footer__nav-menu-item"><a class="site-footer__nav-menu-link" href="https://github.com/ZomboBombo" target="_blank" rel="noopener noreferrer" aria-label="Me on GitHub" value="#github">#github</a></li>
+          <li class="site-footer__nav-menu-item"><a class="site-footer__nav-menu-link" href="https://codepen.io/ZomboBombo" target="_blank" rel="noopener noreferrer" aria-label="Me on Codepen" value="#codepen">#codepen</a></li>
+        </menu>
+      </nav><small class="site-footer__copyright"><span class="site-footer__copyright-text">&copy; Copyright 2024.</span><strong class="site-footer__copyright-text">Made with love by Sergey Novikov.</strong></small>
+    </footer>
+    <script src="/hot-bundle.js?ver=1710824752524"></script>
+  </body>
+</html>
