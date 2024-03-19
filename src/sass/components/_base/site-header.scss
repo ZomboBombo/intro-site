@@ -29,6 +29,14 @@
         margin: 0;
         padding: 0;
         color: var(--ui-secondary);
+
+        $t-props: color;
+        @include trans-config($t-props);
+
+        &:where(:hover, :focus-visible) {
+            scale: 1.01;
+            color: var(--ui-secondary-shade-1);
+        }
     }
 
     &__nav {

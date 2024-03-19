@@ -93,7 +93,7 @@
     /*
         === Media ===
     */
-    @include media(w1024) {
+    @include media(w768) {
         &__nav,
         &__nav-menu-item {
             width: 100%;
