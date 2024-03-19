@@ -37,7 +37,6 @@
     }
 
     &__title-desc {
-        transform: translateX(4rem);
         display: flex;
         flex-direction: column;
         row-gap: 3.2rem;
@@ -83,10 +82,6 @@
                 align-self: start;
                 font-size: 1.4em;
             }
-        }
-
-        &__title-desc {
-            transform: none;
         }
     }
 
