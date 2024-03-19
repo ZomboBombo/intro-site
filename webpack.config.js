@@ -15,7 +15,7 @@ const isDev = !isProd;
   vendor-библиотек.
 */
 const EntryPoints = {
-  common: './js/main.js',
+  main: './js/main.js',
 };
 
 if (isDev) {
