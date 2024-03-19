@@ -6,7 +6,7 @@
     "stylelint": "stylelint \"src/sass/**/*.scss\" --custom-syntax postcss-scss",
     "eslint": "eslint src/js/",
     "test": "npm run stylelint && npm run eslint",
-    "build": "cross-env NODE_ENV=production gulp build && gulp imagemin",
+    "build": "cross-env NODE_ENV=production gulp build",
     "start": "cross-env NODE_ENV=development gulp start"
   },
   "repository": {

@@ -37,13 +37,13 @@ export default function pugToHtml() {
 
         ЕСЛИ триггериться prod-версия,
         то реплейсер подставляет адрес к итоговому минифицированному
-        файлу скриптов "/js/common.min.js".
+        файлу скриптов "/js/main.min.js".
 
         ИНАЧЕ (т.е. для dev-версии) — устанавливается адрес к виртуальному
         банлду, ведущему в корень сайта: "/hot-bundle.js".
       */
       replace('##hot-bundle-js##', function handleReplace(match) {
-        match = isProd ? '/js/common.min.js' : '/hot-bundle.js';
+        match = isProd ? './js/main.min.js' : './hot-bundle.js';
         return match;
       }),
       replace('##hash##', Date.now()),
