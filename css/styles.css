@@ -1058,7 +1058,6 @@ body {
   font-size: 9.6rem;
 }
 .section-hero__title-desc {
-  transform: translateX(4rem);
   display: flex;
   flex-direction: column;
   row-gap: 3.2rem;
@@ -1101,9 +1100,6 @@ body {
   .section-hero__title code {
     align-self: start;
     font-size: 1.4em;
-  }
-  .section-hero__title-desc {
-    transform: none;
   }
 }
 @media only screen and (max-width: 767px) {
