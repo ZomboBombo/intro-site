@@ -12,15 +12,12 @@ html(lang="ru")
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible" content="ie=edge")
-        meta(name="description" content="")
+        meta(name="description" content="Intro of the frontend-dev Sergey Novikov")
 
-        // Размер дефолтной фавиконки: 32x32
-        link(rel="icon" href="./favicon.ico")
-        link(rel="icon" href="./favicons/favicon.svg" type="image/svg+xml")
-        link(rel="apple-touch-icon" href="./favicons/apple-touch-icon.png")
-        link(rel="manifest" href="./favicons/manifest.webmanifest" crossorigin="use-credentials")
+        +favicons()
+        +metainfo()
 
-        // Прелоад шрифтов
+        // Fonts preloading
         link(rel="preload" href="./fonts/inconsolata/Inconsolata-Regular.woff2" as="font" crossorigin="anonymous")
         link(rel="stylesheet" href="./css/styles.min.css")
 

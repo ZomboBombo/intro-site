@@ -1,24 +1,24 @@
-import { series } from 'gulp';
+import { series } from 'gulp'
 
 /*
   Webpack-настройки для поддержки Hot-Module-Replacement (HMR)
 */
-import webpack from 'webpack';
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('./webpack.config');
-const webpackCompiler = webpack(webpackConfig);
+import webpack from 'webpack'
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const webpackHotMiddleware = require('webpack-hot-middleware')
+const webpackConfig = require('./webpack.config')
+const webpackCompiler = webpack(webpackConfig)
 
 // --- Импортирование кастомных модулей из директории "gulp-config/tasks" ---
-import pugToHtml from './gulp-config/tasks/pug';
-import css from './gulp-config/tasks/css';
-import scripts from './gulp-config/tasks/scripts';
-import { sprite, imagesoptimisation } from './gulp-config/tasks/images';
-import copy from './gulp-config/tasks/copy';
-import clean from './gulp-config/tasks/clean';
+import pugToHtml from './gulp-config/tasks/pug'
+import { css, cssMin } from './gulp-config/tasks/css'
+import scripts from './gulp-config/tasks/scripts'
+import { sprite, imagesoptimisation } from './gulp-config/tasks/images'
+import copy from './gulp-config/tasks/copy'
+import clean from './gulp-config/tasks/clean'
 
 // --- Импорт утилитарного модуля ---
-import Helpers from './gulp-config/helpers';
+import Helpers from './gulp-config/helpers'
 
 
 /*
@@ -68,22 +68,22 @@ function server(done) {
         fn: series(sprite, refresh),
       },
     ],
-  });
+  })
 
-  done();
+  done()
 }
 
 // --- Таск для перезагрузки страницы в браузере ---
 function refresh(done) {
-  Helpers.server.reload();
-  done();
+  Helpers.server.reload()
+  done()
 }
 
 // --- Таск оптимизации изображений ---
 function imagemin(done) {
-  imagesoptimisation();
-  done();
-};
+  imagesoptimisation()
+  done()
+}
 
 
 /*
@@ -93,10 +93,10 @@ function imagemin(done) {
 */
 
 // --- Таск для Сборки проекта БЕЗ поднятия сервера ---
-const prod_build = series(clean, copy, css, scripts, sprite, pugToHtml, imagemin);
-const dev_build = series(clean, copy, css, sprite, pugToHtml, imagemin);
+const prod_build = series(clean, copy, cssMin, scripts, sprite, pugToHtml, imagemin)
+const dev_build = series(clean, copy, css, sprite, pugToHtml, imagemin)
 
-exports.build = prod_build;
-exports.start = series(dev_build, server);
+exports.build = prod_build
+exports.start = series(dev_build, server)
 
-export { clean, copy, css, scripts, sprite, pugToHtml };
+export { clean, copy, css, scripts, sprite, pugToHtml }

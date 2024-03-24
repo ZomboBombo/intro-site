@@ -7,22 +7,22 @@
 /* eslint-env node */
 
 
-import { src, dest } from 'gulp';
+import { src, dest } from 'gulp'
 
 // --- CSS-утилиты ---
-import csso from 'gulp-csso';
-import postcss from 'gulp-postcss';
-import autoprefixer from 'autoprefixer';
+import csso from 'gulp-csso'
+import postcss from 'gulp-postcss'
+import autoprefixer from 'autoprefixer'
 
 // --- Препроцессорные утилиты ---
-import dartSass from 'sass';
-import gulpSass from 'gulp-sass';
-const sass = gulpSass(dartSass);
-import plumber from 'gulp-plumber';
-import sourcemap from 'gulp-sourcemaps';
+import dartSass from 'sass'
+import gulpSass from 'gulp-sass'
+const sass = gulpSass(dartSass)
+import plumber from 'gulp-plumber'
+import sourcemap from 'gulp-sourcemaps'
 
 // --- Вспомогательные утилиты ---
-import rename from 'gulp-rename';
+import rename from 'gulp-rename'
 
 /*
 --- Импорт утилитарных модулей ---
@@ -30,9 +30,9 @@ import rename from 'gulp-rename';
 --- 1) с описанием путей к Файлам проекта
 --- 2) модуль с константами и утилитами
 */
-import PATH_TO from '../path-to';
-import ASSETS_CONF from '../assets-conf';
-import Helpers from '../helpers';
+import PATH_TO from '../path-to'
+import ASSETS_CONF from '../assets-conf'
+import Helpers from '../helpers'
 
 
 /*
@@ -42,7 +42,7 @@ import Helpers from '../helpers';
 */
 
 // *** Обработка всех SCSS-файлов и преобразование их в CSS-файлы ***
-export default function css() {
+export function css() {
   return Helpers.pipeline(
       src(PATH_TO.src.sass.main_style_file),
       plumber(),
@@ -57,5 +57,19 @@ export default function css() {
       sourcemap.write('.'),
       dest(PATH_TO.build.css),
       Helpers.server.stream()
-  );
+  )
+}
+
+export function cssMin() {
+    return Helpers.pipeline(
+        src(PATH_TO.src.sass.main_style_file),
+        plumber(),
+        sass(ASSETS_CONF.css.scss),
+        postcss([
+          autoprefixer(ASSETS_CONF.css.autoprefixer)
+        ]),
+        csso(),
+        rename('styles.min.css'),
+        dest(PATH_TO.build.css),
+    )
 }

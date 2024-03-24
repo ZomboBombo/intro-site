@@ -1,12 +1,12 @@
-import { src, dest } from 'gulp';
+import { src, dest } from 'gulp'
 
 // --- Оптимизация изображений ---
-import imagemin from 'gulp-imagemin';
-import webp from 'gulp-webp';
-import svgstore from 'gulp-svgstore';
+import imagemin from 'gulp-imagemin'
+import webp from 'gulp-webp'
+import svgstore from 'gulp-svgstore'
 
 // --- Вспомогательные утилиты ---
-import rename from 'gulp-rename';
+import rename from 'gulp-rename'
 
 /*
 --- Импорт утилитарных модулей ---
@@ -14,9 +14,9 @@ import rename from 'gulp-rename';
 --- 1) с описанием путей к Файлам проекта
 --- 2) модуль с константами и утилитами
 */
-import PATH_TO from '../path-to';
-import ASSETS_CONF from '../assets-conf';
-import Helpers from '../helpers';
+import PATH_TO from '../path-to'
+import ASSETS_CONF from '../assets-conf'
+import Helpers from '../helpers'
 
 
 /*
@@ -30,7 +30,7 @@ const path_to_images_set = {
   of_all_formats: `${PATH_TO.src.img}**/*.{png,jpg,svg}`,
   of_bitmaps: `${PATH_TO.src.img}**/*.{png,jpg}`,
   of_svg_icons: `${PATH_TO.src.img}**/{logo,icon-*}.svg`,
-};
+}
 
 
 // *** Оптимизация изображений ***
@@ -45,8 +45,8 @@ export const optimizeImages = () => {
         })
       ]),
       dest(PATH_TO.build.img)
-  );
-};
+  )
+}
 
 
 // *** Переформатирование изображений в WebP ***
@@ -55,8 +55,8 @@ export const transformToWebp = () => {
       src(path_to_images_set.of_bitmaps),
       webp(ASSETS_CONF.images.webp),
       dest(PATH_TO.build.img)
-  );
-};
+  )
+}
 
 
 // *** Сборка SVG-спрайта ***
@@ -68,11 +68,11 @@ export const sprite = () => {
       }),
       rename('sprite.svg'),
       dest(PATH_TO.build.img)
-  );
-};
+  )
+}
 
 // *** Функция для ручной оптимизации изображений ***
 export const imagesoptimisation = () => {
-  optimizeImages();
-  transformToWebp();
-};
+  optimizeImages()
+  transformToWebp()
+}

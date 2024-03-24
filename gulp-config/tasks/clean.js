@@ -1,8 +1,8 @@
 // --- Вспомогательные утилиты ---
-import del from 'del';
+import del from 'del'
 
 // --- Импорт модуля с описанием путей к Файлам проекта ---
-import PATH_TO from '../path-to';
+import PATH_TO from '../path-to'
 
 
 /*
@@ -13,5 +13,5 @@ import PATH_TO from '../path-to';
 
 // *** Очистка директории build/ ***
 export default function clean() {
-  return del(PATH_TO.build.root);
+  return del(PATH_TO.build.root)
 }
