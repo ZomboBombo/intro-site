@@ -36,4 +36,4 @@ export default {
     img: './build/img/',
     snippets: './build/snippets/',
   },
-};
+}

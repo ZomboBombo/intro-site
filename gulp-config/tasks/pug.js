@@ -1,9 +1,9 @@
-import { src, dest } from 'gulp';
+import { src, dest } from 'gulp'
 // eslint-disable-next-line no-undef
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production'
 
-const pug = require('gulp-pug');
-const replace = require('gulp-replace');
+const pug = require('gulp-pug')
+const replace = require('gulp-replace')
 
 /*
 --- Импорт утилитарных модулей ---
@@ -11,9 +11,9 @@ const replace = require('gulp-replace');
 --- 1) с описанием путей к Файлам проекта
 --- 2) модуль с константами и утилитами
 */
-import PATH_TO from '../path-to';
-import Helpers from '../helpers';
-import ASSETS_CONF from '../assets-conf';
+import PATH_TO from '../path-to'
+import Helpers from '../helpers'
+import ASSETS_CONF from '../assets-conf'
 
 /*
 =====================================================
@@ -26,7 +26,7 @@ export default function pugToHtml() {
       src(PATH_TO.src.pug.snippets + '**/*.pug'),
       pug(ASSETS_CONF.pug),
       dest(PATH_TO.build.snippets)
-  );
+  )
 
   return Helpers.pipeline(
       src(PATH_TO.src.pug.to_html + '**/*.pug'),
@@ -43,10 +43,10 @@ export default function pugToHtml() {
         банлду, ведущему в корень сайта: "/hot-bundle.js".
       */
       replace('##hot-bundle-js##', function handleReplace(match) {
-        match = isProd ? './js/main.min.js' : './hot-bundle.js';
-        return match;
+        match = isProd ? './js/main.min.js' : './hot-bundle.js'
+        return match
       }),
       replace('##hash##', Date.now()),
       dest(PATH_TO.build.root)
-  );
+  )
 }

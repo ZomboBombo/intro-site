@@ -7,7 +7,7 @@
 /* eslint-env node */
 
 
-import { src, dest } from 'gulp';
+import { src, dest } from 'gulp'
 
 /*
 --- Импорт утилитарных модулей ---
@@ -15,9 +15,9 @@ import { src, dest } from 'gulp';
 --- 1) с описанием путей к Файлам проекта
 --- 2) модуль с константами и утилитами
 */
-import PATH_TO from '../path-to';
-import ASSETS_CONF from '../assets-conf';
-import Helpers from '../helpers';
+import PATH_TO from '../path-to'
+import ASSETS_CONF from '../assets-conf'
+import Helpers from '../helpers'
 
 
 /*
@@ -41,5 +41,5 @@ export default function copy() {
 
       src(`${PATH_TO.src.favicons}favicon.ico`),
       dest(PATH_TO.build.root)
-  );
+  )
 }

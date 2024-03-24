@@ -3,13 +3,13 @@
 
 
 // --- Вспомогательные утилиты ---
-const { pipeline } = require('readable-stream');
+const { pipeline } = require('readable-stream')
 
 // --- Серверные утилиты ---
-const browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync').create()
 
 
 export default {
   pipeline,
   server: browserSync,
-};
+}

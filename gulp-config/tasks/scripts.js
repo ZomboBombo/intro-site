@@ -7,11 +7,11 @@
 /* eslint-env node */
 
 // --- Файлы с настройками для Webpack ---
-import webpackStream from 'webpack-stream';
-const webpackConfig = require('../../webpack.config.js');
+import webpackStream from 'webpack-stream'
+const webpackConfig = require('../../webpack.config.js')
 
 // --- Gulp-утилиты ---
-import { src, dest } from 'gulp';
+import { src, dest } from 'gulp'
 
 
 /*
@@ -20,8 +20,8 @@ import { src, dest } from 'gulp';
 --- 1) с описанием путей к Файлам проекта
 --- 2) модуль с константами и утилитами
 */
-import PATH_TO from '../path-to';
-import Helpers from '../helpers';
+import PATH_TO from '../path-to'
+import Helpers from '../helpers'
 
 
 /*
@@ -36,5 +36,5 @@ export default function scripts() {
       src(PATH_TO.src.js.main_file),
       webpackStream(webpackConfig),
       dest(PATH_TO.build.js)
-  );
+  )
 }
