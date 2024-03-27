@@ -4,9 +4,22 @@ mixin section-pets(data = {})
             h2.ui-title.ui-title--sem-section Pets
             p.section-pets__title-desc My favorite pets
 
-        ul.section-pets__list
-            each pet in DataPets
-                if pet.isWip
-                    li: +pet-card-wip()
-                else
-                    li: +pet-card(pet)
+        section.section-pets__subsection
+            h3.section-pets__subsection-title Web-dev
+
+            ul.section-pets__list
+                each pet in DataPets._webDev
+                    if pet.isWip
+                        li: +pet-card-wip()
+                    else
+                        li: +pet-card(pet)
+
+        section.section-pets__subsection
+            h3.section-pets__subsection-title Mobile-dev
+
+            ul.section-pets__list
+                each pet in DataPets._mobileDev
+                    if pet.isWip
+                        li: +pet-card-wip()
+                    else
+                        li: +pet-card(pet)

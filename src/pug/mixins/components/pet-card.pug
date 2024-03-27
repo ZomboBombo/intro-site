@@ -1,8 +1,8 @@
 mixin pet-card(data = {})
     -
         const tooltip = data.href ? 'Go to the project page' : 'Open project detail info'
-        const hrefGh = data.href?.gh || '#'
-        const hrefDemo = data.href?.demo || '#'
+        const hrefRepo = data.href?.repo || '#'
+        const hrefDemo = data.href?.demo || false
         const picName = data.pic?.name || 'content/pic-placeholder'
         const picExt = data.pic?.ext || 'png'
         const picAlt = data.pic?.alt || false
@@ -20,22 +20,23 @@ mixin pet-card(data = {})
             .pet-card__info
                 hgroup.pet-card__title-box
                     h3.pet-card__title= data.title
-                    p.pet-card__title-desc= data.desc
+                    p.pet-card__title-desc!= data.desc
 
                 .pet-card__links
                     +link({
                         isExternal: true,
-                        href: hrefGh,
-                        tooltip: 'Open project\'s repo in GitHub',
-                        text: '> Goto GitHub',
+                        href: hrefRepo,
+                        tooltip: 'Open project\'s repo',
+                        text: '> Goto repo',
                     }).pet-card__link
 
-                    +link({
-                        isExternal: true,
-                        href: hrefDemo,
-                        tooltip: 'Open project\'s demo',
-                        text: '> Watch Demo',
-                    }).pet-card__link
+                    if hrefDemo
+                        +link({
+                            isExternal: true,
+                            href: hrefDemo,
+                            tooltip: 'Open project\'s demo',
+                            text: '> Watch Demo',
+                        }).pet-card__link
 
                 if data.tags
                     ul.pet-card__tags
