@@ -23,6 +23,21 @@
         font-size: 3.2rem;
     }
 
+    &__subsection {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.4rem;
+    }
+
+    &__subsection-title {
+        margin: 0;
+        padding: 0;
+        font: {
+            size: 7.2rem;
+            weight: 700;
+        };
+    }
+
     &__list {
         @include reset-list;
         display: grid;
@@ -42,7 +57,10 @@
     @include media(w1024) {
         &__title-box {
             row-gap: 2.4rem;
-            align-items: start;
+        }
+
+        &__subsection-title {
+            font-size: 4.8rem;
         }
     }
 }

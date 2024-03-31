@@ -121,6 +121,11 @@
 
     &__title-desc {
         font-size: 2.4rem;
+
+        em {
+            display: block;
+            font-style: italic;
+        }
     }
 
     &__links {

@@ -6,12 +6,13 @@ mixin site-footer(data = {})
                     -
                         const href = navItem.href || '#'
                         const tooltip = navItem.tooltip || false
+                        const notAction = !navItem.isAction
 
                     li.site-footer__nav-menu-item
                         a.site-footer__nav-menu-link(
                             href=href
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target=notAction && "_blank"
+                            rel=notAction && "noopener noreferrer"
                             aria-label=tooltip
                             value=navItem.text
                         )= navItem.text
