@@ -12,3 +12,4 @@ npm-debug.*
 src/css/*.css
 src/css/*.map
 Thumbs.db
+pnpm-lock.yaml
