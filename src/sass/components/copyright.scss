@@ -1,0 +1,15 @@
+@use "../system/mixins" as *;
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.4rem;
+  font-size: 1.6rem;
+
+  /*
+    === Media ===
+  */
+  @include media(w768) {
+    width: 100%;
+  }
+}

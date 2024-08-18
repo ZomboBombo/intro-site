@@ -2,32 +2,32 @@ doctype html
 include ./components
 
 block variables
-    -
-        var hasHeader = true
-        var hasFooter = true
+  -
+    var hasHeader = true
+    var hasFooter = true
 
 html(lang="ru")
-    head
-        title= title
-        meta(charset="utf-8")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible" content="ie=edge")
-        meta(name="description" content="Intro of the frontend-dev Sergey Novikov")
+  head
+    title= title
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
 
-        +favicons()
-        +metainfo()
+    +metainfo()
+    +favicons()
 
-        // Fonts preloading
-        link(rel="preload" href="./fonts/inconsolata/Inconsolata-Regular.woff2" as="font" crossorigin="anonymous")
-        link(rel="stylesheet" href="./css/styles.min.css")
+    // Fonts preloading
+    link(rel="preload" href="./fonts/inconsolata/Inconsolata-Regular.woff2" as="font" crossorigin="anonymous")
+    link(rel="stylesheet" href="./css/styles.min.css")
 
-    body
-        +sprite()
+  body
+    +sprite()
 
-        +site-header()
+    +site-sidebar()
 
-        block main
+    main.site-main
+      block main
 
-        +site-footer()
+      +site-footer()
 
-        script(src="##hot-bundle-js##?ver=##hash##")
+    script(src="##hot-bundle-js##?ver=##hash##")

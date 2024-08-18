@@ -1,0 +1,11 @@
+// Base
+@forward "_base/site-header";
+@forward "_base/site-sidebar";
+@forward "_base/site-main";
+@forward "_base/site-footer";
+
+// Other
+@forward "skill-card";
+@forward "pet-card";
+@forward "pet-card-wip";
+@forward "copyright";

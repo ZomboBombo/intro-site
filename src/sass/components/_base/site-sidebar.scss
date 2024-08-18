@@ -1,0 +1,79 @@
+@use "../../system/vars" as *;
+@use "../../system/mixins" as *;
+
+.site-sidebar {
+  @include base-gradient-bg;
+
+  position: relative;
+  isolation: isolate;
+  // transform: translateX(-100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 1.6rem;
+
+  &__nav-menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.4rem;
+  }
+
+  &__nav-menu-link {
+    $t-propss: color, background-color, opacity;
+    @include trans-config($t-propss);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 3.2rem;
+    line-height: 1;
+    padding: var(--nm-link-gap) 5rem;
+    border: 0.2rem solid var(--ui-secondary);
+    border-radius: var(--nm-brd-rad);
+    -webkit-tap-highlight-color: var(--color-def-transparent);
+
+    &:where(:hover, :focus-visible) {
+      color: var(--ui-primary);
+      background-color: var(--ui-secondary);
+    }
+
+    &:active {
+      opacity: 0.75;
+    }
+  }
+
+  &__trigger {
+    $t-props: color, background-color;
+    @include trans-config($t-props);
+    @include base-gradient-bg;
+
+    position: absolute;
+    top: 1rem;
+    left: 100%;
+    z-index: 1;
+    padding: 0.8rem;
+    color: var(--ui-secondary);
+    border: {
+      width: 0.2rem;
+      style: solid;
+      color: var(--ui-secondary);
+      left: none;
+      top-right-radius: 1.2rem;
+      bottom-right-radius: 1.2rem;
+    }
+    cursor: pointer;
+
+    &:where(:hover, :focus-visible) {
+      color: var(--ui-secondary-shade-1);
+    }
+
+    &:active {
+      color: var(--ui-primary);
+      background: {
+        color: var(--ui-secondary);
+        image: none;
+      }
+    }
+  }
+}

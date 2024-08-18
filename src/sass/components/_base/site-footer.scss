@@ -1,115 +1,105 @@
 @use "../../system/mixins" as *;
 
 .site-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 3.2rem;
-    margin: 0;
-    margin-block-start: auto;
-    padding:
-        var(--gap-def-ver)
-        var(--gap-def-hor);
-    border-top: 0.2rem solid var(--ui-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.2rem;
+  margin: 0;
+  margin-block-start: auto;
+  padding: var(--gap-def-ver) var(--gap-def-hor);
+  border-top: 0.2rem solid var(--ui-secondary);
 
-    &__nav-menu {
-        @include reset-list;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 1.25em;
-        font-size: 2.2rem;
+  &__nav-menu {
+    @include reset-list;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25em;
+    font-size: 2.2rem;
+  }
+
+  &__nav-menu-link {
+    $l-gap-vertical: 0.8rem;
+    $l-gap-horizontal: 1.6rem;
+    $l-brd-rad: calc($l-gap-vertical * 4);
+
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: $l-gap-vertical $l-gap-horizontal;
+    color: var(--color-def-transparent);
+    background-color: var(--ui-secondary);
+    border: 0.2rem solid var(--ui-secondary);
+    border-radius: $l-brd-rad;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: attr(value);
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+
+      $t-propss: transform;
+      @include trans-config($t-propss);
     }
 
-    &__nav-menu-link {
-        $l-gap-vertical: 0.8rem;
-        $l-gap-horizontal: 1.6rem;
-        $l-brd-rad: calc($l-gap-vertical * 4);
+    &::before {
+      transform: translateY(0);
+      color: var(--ui-primary);
+      background-color: var(--ui-secondary);
+    }
 
-        position: relative;
-        isolation: isolate;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        padding:
-            $l-gap-vertical
-            $l-gap-horizontal;
-        color: var(--color-def-transparent);
-        background-color: var(--ui-secondary);
-        border: 0.2rem solid var(--ui-secondary);
-        border-radius: $l-brd-rad;
-        overflow: hidden;
+    &::after {
+      transform: translateY(100%);
+      color: var(--ui-secondary);
+      background-color: var(--ui-primary);
+    }
 
-        &::before,
-        &::after {
-            content: attr(value);
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
+    &:where(:hover, :focus-visible) {
+      &::before {
+        transform: translateY(-100%);
+      }
 
-            $t-propss: transform;
-            @include trans-config($t-propss);
-        }
+      &::after {
+        transform: translateY(0);
+      }
+    }
+  }
 
-        &::before {
-            transform: translateY(0);
-            color: var(--ui-primary);
-            background-color: var(--ui-secondary);
-        }
+  &__copyright {
+    min-width: max-content;
+    text-align: end;
+  }
 
-        &::after {
-            transform: translateY(100%);
-            color: var(--ui-secondary);
-            background-color: var(--ui-primary);
-        }
+  /*
+    === Media ===
+  */
+  @include media(w768) {
+    flex-direction: column;
 
-        &:where(:hover, :focus-visible) {
-            &::before {
-                transform: translateY(-100%);
-            }
+    &__nav,
+    &__nav-menu-item {
+      width: 100%;
+    }
 
-            &::after {
-                transform: translateY(0);
-            }
-        }
+    &__nav-menu {
+      flex-direction: column;
+      gap: 0.5em;
     }
 
     &__copyright {
-        display: flex;
-        flex-direction: column;
-        row-gap: 0.4rem;
-        min-width: max-content;
-        font-size: 1.6rem;
-        text-align: end;
+      min-width: auto;
+      text-align: center;
     }
-
-
-    /*
-        === Media ===
-    */
-    @include media(w768) {
-        flex-direction: column;
-
-        &__nav,
-        &__nav-menu-item {
-            width: 100%;
-        }
-
-        &__nav-menu {
-            flex-direction: column;
-            gap: 0.5em;
-        }
-
-        &__copyright {
-            width: 100%;
-            min-width: auto;
-            text-align: center;
-        }
-    }
+  }
 }

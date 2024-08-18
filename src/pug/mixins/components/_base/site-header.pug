@@ -1,31 +1,31 @@
 mixin site-header(data = {})
-    header.site-header&attributes(attributes)
-        nav.site-header__nav
-            a.site-header__logo(href="/")
-                +icon({
-                    width: 100,
-                    height: 100,
-                    name: 'icon-logo',
-                })
+  header.site-header&attributes(attributes)
+    nav.site-header__nav
+      a.site-header__logo(href="/")
+        +icon({
+          width: 100,
+          height: 100,
+          name: 'icon-logo',
+        })
 
-            menu.site-header__nav-menu(data-burger-menu="menu")
-                each navItem in DataMainNavigation
-                    -
-                        const href = navItem.href || '#'
-                        const tooltip = navItem.tooltip || false
+      menu.site-header__nav-menu(data-burger-menu="menu")
+        each navItem in DataMainNavigation
+          -
+            const href = navItem.href || '#'
+            const tooltip = navItem.tooltip || false
 
-                    li.site-header__nav-menu-item
-                        a.site-header__nav-menu-link(
-                            href=href
-                            aria-label=tooltip
-                            data-burger-menu="link"
-                        )= navItem.text
+          li.site-header__nav-menu-item
+            a.site-header__nav-menu-link(
+              href=href
+              aria-label=tooltip
+              data-burger-menu="link"
+            )= navItem.text
 
-            button.site-header__burger(
-                type="button"
-                aria-label="Open Nav Menu"
-                aria-pressed="false"
-                data-burger-menu="burger"
-                data-burger-tt-close="Open Nav Menu"
-                data-burger-tt-open="CLose Nav Menu"
-            ) Nav Menu Trigger
+      button.site-header__burger(
+        type="button"
+        aria-label="Open Nav Menu"
+        aria-pressed="false"
+        data-burger-menu="burger"
+        data-burger-tt-close="Open Nav Menu"
+        data-burger-tt-open="CLose Nav Menu"
+      ) Nav Menu Trigger

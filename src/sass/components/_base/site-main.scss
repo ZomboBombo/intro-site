@@ -1,0 +1,8 @@
+.site-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  border: 0.2rem solid var(--ui-secondary);
+}

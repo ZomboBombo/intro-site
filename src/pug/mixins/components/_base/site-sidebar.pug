@@ -1,0 +1,27 @@
+mixin site-sidebar(data = {})
+  aside.site-sidebar&attributes(attributes)
+    button.site-sidebar__trigger(
+      type="button"
+      aria-label="Open the sidebar with additional info"
+      title="Open the sidebar with additional info"
+    )
+      +icon({
+        width: 100,
+        height: 100,
+        name: 'icon-logo',
+      })
+
+    nav.site-sidebar__nav
+      menu.site-sidebar__nav-menu
+        each navItem in DataMainNavigation
+          -
+            const href = navItem.href || '#'
+            const tooltip = navItem.tooltip || false
+
+          li.site-sidebar__nav-menu-item
+            a.site-sidebar__nav-menu-link(
+              href=href
+              aria-label=tooltip
+            )= navItem.text
+
+    +copyright({year: '2024'})

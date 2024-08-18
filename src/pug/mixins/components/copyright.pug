@@ -1,0 +1,6 @@
+mixin copyright(data = {})
+  - const year = data.year ?? '0000'
+
+  small.copyright&attributes(attributes)
+    span.copyright__text &copy; Copyright #{year}.
+    strong.copyright__text Made with love by Sergey Novikov.
