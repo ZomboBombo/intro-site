@@ -1,20 +1,30 @@
 @use "vars" as *;
 
-
 /*
-    <...> для сброса стилей списков
+  <...> основной градиентный "background" сайта
 */
-@mixin reset-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+@mixin base-gradient-bg($bg-color: var(--cs-dark), $bg-gradient: var(--ui-gradient)) {
+  background: {
+    color: var(--cs-dark);
+    image: var(--ui-gradient);
+    repeat: no-repeat;
+    position: center center;
+  }
 }
 
+/*
+  <...> для сброса стилей списков
+*/
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
 
 /*
-    <...> для настроек плавности интерактивных элементов
+  <...> для настроек плавности интерактивных элементов
 */
-@mixin trans-config ($t-props, $t-dur: 0.15s, $t-timing-func: ease) {
+@mixin trans-config($t-props, $t-dur: 0.15s, $t-timing-func: ease) {
   transition: {
     property: $t-props;
     duration: $t-dur;
@@ -22,9 +32,8 @@
   }
 }
 
-
 /*
-    <...> для изображений внутри <picture>
+  <...> для изображений внутри <picture>
 */
 @mixin pictured-image {
   display: block;
@@ -34,63 +43,70 @@
   object-position: center center;
 }
 
-
 /*
-    <...> для добавления фона на всю ширину
-    для блоков, находящизся внутри семантических
-    wrapper-блоков на странице.
+  <...> для добавления фона на всю ширину
+  для блоков, находящизся внутри семантических
+  wrapper-блоков на странице.
 */
 @mixin fullwidth-bg($bg-color) {
-    background-color: $bg-color;
-    box-shadow: 0 0 0 100vmax $bg-color;
-    clip-path: inset(0 -100vmax);
+  background-color: $bg-color;
+  box-shadow: 0 0 0 100vmax $bg-color;
+  clip-path: inset(0 -100vmax);
 }
-
 
 /*
-    <...> для улучшения UX после :hover
-    на тач-устройствах
+  <...> для улучшения UX после :hover
+  на тач-устройствах
 */
 @mixin media-touch-hover($element) {
-    @media (hover: hover) {
-        #{$element}:is(:hover, :focus-visible) { @content; }
+  @media (hover: hover) {
+    #{$element}:is(:hover, :focus-visible) {
+      @content;
     }
+  }
 
-    @media (hover: none) {
-        #{$element}:active { @content; }
+  @media (hover: none) {
+    #{$element}:active {
+      @content;
     }
+  }
 }
-
 
 /*
   Универсальный миксин для медиа-запросов
 */
 @mixin media($media) {
   @if $media == w768 {
-    @media only screen and (max-width: calc($media-w768 - 1px)) { @content; }
-  }
-  @else if $media == w768-min {
-    @media only screen and (min-width: calc($media-w768 + 1px)) { @content; }
-  }
-
-  @else if $media == w1024 {
-    @media only screen and (max-width: calc($media-w1024 - 1px)) { @content; }
-  }
-  @else if $media == w1024-min {
-    @media only screen and (min-width: calc($media-w1024 + 1px)) { @content; }
-  }
-
-  @else if $media == w1280 {
-    @media only screen and (max-width: calc($media-w1280 - 1px)) { @content; }
-  }
-  @else if $media == w1280-min {
-    @media only screen and (min-width: calc($media-w1280 + 1px)) { @content; }
-  }
-
-  @else if $media == w1440 {
-    @media only screen and (max-width: calc($media-w1440 - 1px)) { @content; }
-  }
-  @else if $media == w1440-min {
-    @media only screen and (min-width: calc($media-w1440 + 1px)) { @content; }
+    @media only screen and (max-width: calc($media-w768 - 1px)) {
+      @content;
+    }
+  } @else if $media == w768-min {
+    @media only screen and (min-width: calc($media-w768 + 1px)) {
+      @content;
+    }
+  } @else if $media == w1024 {
+    @media only screen and (max-width: calc($media-w1024 - 1px)) {
+      @content;
+    }
+  } @else if $media == w1024-min {
+    @media only screen and (min-width: calc($media-w1024 + 1px)) {
+      @content;
+    }
+  } @else if $media == w1280 {
+    @media only screen and (max-width: calc($media-w1280 - 1px)) {
+      @content;
+    }
+  } @else if $media == w1280-min {
+    @media only screen and (min-width: calc($media-w1280 + 1px)) {
+      @content;
+    }
+  } @else if $media == w1440 {
+    @media only screen and (max-width: calc($media-w1440 - 1px)) {
+      @content;
+    }
+  } @else if $media == w1440-min {
+    @media only screen and (min-width: calc($media-w1440 + 1px)) {
+      @content;
+    }
   }
 }

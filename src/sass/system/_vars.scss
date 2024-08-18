@@ -1,50 +1,50 @@
 :root {
-    // Colors
-    // => [default]
-    --color-def-white: hsl(0 0% 100%);
-    --color-def-black: hsl(0 0% 0%);
-    --color-def-transparent: hsl(0 0% 100% / 0);
-    //
-    // => [ui]
-    --ui-primary: hsl(272 58% 6%);
-    --ui-primary-trans050: hsl(272 58% 6% / 0.5);
-    --ui-primary-trans025: hsl(272 58% 6% / 0.25);
-    --ui-primary-shade-1: hsl(271 74% 6%);
-    --ui-primary-shade-2: hsl(271 34% 15%);
-    --ui-primary-shade-3: hsl(271 34% 35%);
-    --ui-secondary: hsl(260 90% 81%);
-    --ui-secondary-trans050: hsl(260 90% 81% / 0.5);
-    --ui-secondary-trans025: hsl(260 90% 81% / 0.25);
-    --ui-secondary-shade-1: hsl(260 90% 71%);
-    --ui-secondary-shade-2: hsl(260 90% 61%);
-    --ui-secondary-shade-3: hsl(260 90% 55%);
-    --ui-gradient: linear-gradient(45deg, var(--ui-primary) 0%, var(--ui-primary-shade-1) 100%);
-    //
-    // => [color-scheme]
-    --cs-dark: var(--ui-primary);
-    --cs-light: var(--ui-secondary);
+  // Colors
+  // => [default]
+  --color-def-white: hsl(0 0% 100%);
+  --color-def-black: hsl(0 0% 0%);
+  --color-def-transparent: hsl(0 0% 100% / 0);
+  //
+  // => [ui]
+  --ui-primary: hsl(272 58% 6%);
+  --ui-primary-trans050: hsl(272 58% 6% / 0.5);
+  --ui-primary-trans025: hsl(272 58% 6% / 0.25);
+  --ui-primary-shade-1: hsl(271 74% 6%);
+  --ui-primary-shade-2: hsl(271 34% 15%);
+  --ui-primary-shade-3: hsl(271 34% 35%);
+  --ui-secondary: hsl(260 90% 81%);
+  --ui-secondary-trans050: hsl(260 90% 81% / 0.5);
+  --ui-secondary-trans025: hsl(260 90% 81% / 0.25);
+  --ui-secondary-shade-1: hsl(260 90% 71%);
+  --ui-secondary-shade-2: hsl(260 90% 61%);
+  --ui-secondary-shade-3: hsl(260 90% 55%);
+  --ui-gradient: linear-gradient(45deg, var(--ui-primary) 0%, var(--ui-primary-shade-1) 100%);
+  //
+  // => [color-scheme]
+  --cs-dark: var(--ui-primary);
+  --cs-light: var(--ui-secondary);
 
-    // Gaps
-    --gap-def-ver: 1.25rem;
-    --gap-def-hor: 2rem;
-    --gap-section-ver: 12rem;
+  // Gaps
+  --gap-def-ver: 1.25rem;
+  --gap-def-hor: 2rem;
+  --gap-section-ver: 12rem;
 
-    // Sizes
-    --w-min: 37.5rem;
-    --w-max: 192rem;
-    --w-1440: 144rem;
-    --w-card-min: 32rem;
+  // Sizes
+  --w-min: 37.5rem;
+  --w-max: 192rem;
+  --w-1440: 144rem;
+  --w-card-min: 32rem;
 
-    /*
-        === Media ===
-    */
-    @media only screen and (max-width: 1023px) {
-        --gap-section-ver: 6rem;
-    }
+  /*
+    === Media ===
+  */
+  @media only screen and (max-width: 1023px) {
+    --gap-section-ver: 6rem;
+  }
 
-    @media only screen and (max-width: 420px) {
-        --w-card-min: 24rem;
-    }
+  @media only screen and (max-width: 420px) {
+    --w-card-min: 24rem;
+  }
 }
 
 /*
