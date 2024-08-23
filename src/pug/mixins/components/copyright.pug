@@ -1,5 +1,5 @@
-mixin copyright(data = {})
-  - const year = data.year ?? '0000'
+mixin copyright(props = {})
+  - const year = props.year ?? '0000'
 
   small.copyright&attributes(attributes)
     span.copyright__text &copy; Copyright #{year}.
