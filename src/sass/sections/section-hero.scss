@@ -1,123 +1,122 @@
 @use '../system/mixins' as *;
-
+@use '../system/breakpoints' as *;
 
 .section-hero {
-    $fs-w1024: clamp(2.4rem, 4.685vw, 3.2rem);
+  $fs-w1024: clamp(2.4rem, 4.685vw, 3.2rem);
 
-    box-sizing: content-box;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.4rem;
-    width: max-content;
-    max-width: 100rem;
-    margin: 0;
-    margin-inline: auto;
-    padding: var(--gap-section-ver) 2.5rem;
-    scroll-margin-block-start: var(--gap-section-ver);
+  box-sizing: content-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+  width: max-content;
+  max-width: 100rem;
+  margin: 0;
+  margin-inline: auto;
+  padding: var(--gap-section-ver) 2.5rem;
+  scroll-margin-block-start: var(--gap-section-ver);
+
+  &__title-box {
+    display: contents;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 0.8rem;
+    font: {
+      size: 6.4rem;
+      weight: 700;
+    }
+
+    code {
+      align-self: end;
+      font-size: 9.6rem;
+    }
+  }
+
+  &__title-desc {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3.2rem;
+    font-size: 3.2rem;
+  }
+
+  &__title-desc-text {
+    line-height: 1.4;
+  }
+
+  &__pic {
+    grid: {
+      column: 2;
+      row: 2;
+    }
+    display: block;
+    width: 100%;
+    max-width: 35rem;
+    height: 100%;
+    background-color: var(--ui-primary-shade-2);
+    border-radius: 0.8rem;
+    overflow: hidden;
+
+    img {
+      @include pictured-image;
+    }
+  }
+
+  /*
+    === Media ===
+  */
+  @include media(w1024) {
+    width: auto;
+
+    &__title {
+      flex-direction: row;
+      align-items: center;
+      column-gap: 2.4rem;
+      font-size: $fs-w1024;
+
+      code {
+        align-self: start;
+        font-size: 1.4em;
+      }
+    }
+  }
+
+  @include media(w768) {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: 100%;
 
     &__title-box {
-        display: contents;
+      display: flex;
+      flex-direction: column;
+      row-gap: 2.4rem;
     }
 
     &__title {
-        grid-column: 1 / -1;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        row-gap: 0.8rem;
-        font: {
-            size: 6.4rem;
-            weight: 700;
-        };
-
-        code {
-            align-self: end;
-            font-size: 9.6rem;
-        }
+      flex-direction: column;
+      align-items: start;
     }
 
     &__title-desc {
-        display: flex;
-        flex-direction: column;
-        row-gap: 3.2rem;
-        font-size: 3.2rem;
+      row-gap: 2.4rem;
+      transform: none;
+      font-size: $fs-w1024;
     }
 
     &__title-desc-text {
-        line-height: 1.4;
+      line-break: auto;
+
+      code {
+        white-space: normal;
+      }
     }
 
     &__pic {
-        grid: {
-            column: 2;
-            row: 2;
-        };
-        display: block;
-        width: 100%;
-        max-width: 35rem;
-        height: 100%;
-        background-color: var(--ui-primary-shade-2);
-        border-radius: 0.8rem;
-        overflow: hidden;
-
-        img {
-            @include pictured-image;
-        }
+      max-width: 100%;
     }
-
-
-    /*
-        === Media ===
-    */
-    @include media(w1024) {
-        width: auto;
-
-        &__title {
-            flex-direction: row;
-            align-items: center;
-            column-gap: 2.4rem;
-            font-size: $fs-w1024;
-
-            code {
-                align-self: start;
-                font-size: 1.4em;
-            }
-        }
-    }
-
-    @include media(w768) {
-        display: flex;
-        flex-direction: column;
-        width: auto;
-        max-width: 100%;
-
-        &__title-box {
-            display: flex;
-            flex-direction: column;
-            row-gap: 2.4rem;
-        }
-
-        &__title {
-            flex-direction: column;
-            align-items: start;
-        }
-
-        &__title-desc {
-            row-gap: 2.4rem;
-            transform: none;
-            font-size: $fs-w1024;
-        }
-
-        &__title-desc-text {
-            line-break: auto;
-
-            code {
-                white-space: normal;
-            }
-        }
-
-        &__pic {
-            max-width: 100%;
-        }
-    }
+  }
 }

@@ -1,3 +1,23 @@
+/*
+  Transition
+*/
+$trans: (
+  'fast': 0.15s,
+  'base': 0.3s,
+  'long': 0.5s
+);
+
+/*
+  Z-index
+*/
+
+$z-index: (
+  'header': 99,
+  'sidebar': 99,
+  'drops': 999,
+  'modals': 9999
+);
+
 :root {
   // Colors
   // => [default]
@@ -35,6 +55,16 @@
   --w-1440: 144rem;
   --w-card-min: 32rem;
 
+  // Transitions
+  @each $name, $value in $trans {
+    --trans-#{$name}: #{$value};
+  }
+
+  // Z-indexes
+  @each $name, $value in $z-index {
+    --z-#{$name}: #{$value};
+  }
+
   /*
     === Media ===
   */
@@ -46,25 +76,3 @@
     --w-card-min: 24rem;
   }
 }
-
-/*
-  Media
-*/
-
-$media-w768: 768px;
-$media-w1024: 1024px;
-$media-w1280: 1280px;
-$media-w1440: 1440px;
-
-/*
-  Retina
-*/
-$retina-dpi: 144dpi;
-$retina-dppx: 1.5dppx;
-
-/*
-  Z-index
-*/
-$z-header: 99;
-$z-drops: 999;
-$z-modals: 9999;

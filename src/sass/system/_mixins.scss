@@ -1,4 +1,4 @@
-@use "vars" as *;
+@use 'vars' as *;
 
 /*
   <...> основной градиентный "background" сайта
@@ -67,45 +67,6 @@
 
   @media (hover: none) {
     #{$element}:active {
-      @content;
-    }
-  }
-}
-
-/*
-  Универсальный миксин для медиа-запросов
-*/
-@mixin media($media) {
-  @if $media == w768 {
-    @media only screen and (max-width: calc($media-w768 - 1px)) {
-      @content;
-    }
-  } @else if $media == w768-min {
-    @media only screen and (min-width: calc($media-w768 + 1px)) {
-      @content;
-    }
-  } @else if $media == w1024 {
-    @media only screen and (max-width: calc($media-w1024 - 1px)) {
-      @content;
-    }
-  } @else if $media == w1024-min {
-    @media only screen and (min-width: calc($media-w1024 + 1px)) {
-      @content;
-    }
-  } @else if $media == w1280 {
-    @media only screen and (max-width: calc($media-w1280 - 1px)) {
-      @content;
-    }
-  } @else if $media == w1280-min {
-    @media only screen and (min-width: calc($media-w1280 + 1px)) {
-      @content;
-    }
-  } @else if $media == w1440 {
-    @media only screen and (max-width: calc($media-w1440 - 1px)) {
-      @content;
-    }
-  } @else if $media == w1440-min {
-    @media only screen and (min-width: calc($media-w1440 + 1px)) {
       @content;
     }
   }

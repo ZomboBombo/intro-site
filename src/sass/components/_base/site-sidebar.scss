@@ -1,16 +1,23 @@
-@use "../../system/vars" as *;
-@use "../../system/mixins" as *;
+@use '../../system/vars' as *;
+@use '../../system/mixins' as *;
 
 .site-sidebar {
+  @include trans-config(transform, var(--trans-base));
   @include base-gradient-bg;
 
-  position: relative;
+  position: fixed;
   isolation: isolate;
-  // transform: translateX(-100%);
+  inset: 0;
+  right: auto;
+  z-index: var(--z-sidebar);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem 1.6rem;
+
+  &.is-open {
+    transform: translateX(-100%);
+  }
 
   &__nav-menu {
     display: flex;
@@ -19,8 +26,8 @@
   }
 
   &__nav-menu-link {
-    $t-propss: color, background-color, opacity;
-    @include trans-config($t-propss);
+    $t-props: color, background-color, opacity;
+    @include trans-config($t-props);
 
     display: flex;
     justify-content: center;

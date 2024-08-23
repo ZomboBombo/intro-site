@@ -1,5 +1,6 @@
-@use "../../system/vars" as *;
-@use "../../system/mixins" as *;
+@use '../../system/vars' as *;
+@use '../../system/mixins' as *;
+@use '../../system/breakpoints' as *;
 
 :root {
   --nm-gap: 0.2rem;
@@ -12,13 +13,16 @@
   isolation: isolate;
   inset: 0;
   bottom: auto;
-  z-index: $z-header;
+  z-index: var(--z-header);
   margin: 0;
   padding: var(--gap-def-ver) var(--gap-def-hor);
   background-color: var(--ui-primary);
   border-bottom: 0.2rem solid var(--ui-secondary);
 
   &__logo {
+    $t-props: color;
+    @include trans-config($t-props);
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,9 +30,6 @@
     margin: 0;
     padding: 0;
     color: var(--ui-secondary);
-
-    $t-props: color;
-    @include trans-config($t-props);
 
     &:where(:hover, :focus-visible) {
       scale: 1.01;
@@ -44,7 +45,9 @@
   }
 
   &__nav-menu {
+    @include trans-config(transform, var(--trans-long));
     @include reset-list;
+
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -54,14 +57,11 @@
     padding: var(--nm-gap);
     border: 0.2rem solid var(--ui-secondary);
     border-radius: var(--nm-brd-rad);
-
-    $t-props: transform;
-    @include trans-config($t-props, 0.5s);
   }
 
   &__nav-menu-link {
-    $t-propss: color, background-color;
-    @include trans-config($t-propss);
+    $t-props: color, background-color;
+    @include trans-config($t-props);
 
     display: flex;
     justify-content: center;
@@ -78,6 +78,9 @@
   }
 
   &__burger {
+    $t-props: background-color, opacity;
+    @include trans-config($t-props);
+
     position: relative;
     isolation: isolate;
     display: none;
@@ -92,10 +95,7 @@
     cursor: pointer;
     -webkit-tap-highlight-color: var(--color-def-transparent);
 
-    $t-props: background-color, opacity;
-    @include trans-config($t-props);
-
-    &[aria-pressed="true"] {
+    &[aria-pressed='true'] {
       &::before {
         rotate: 45deg;
       }
@@ -110,7 +110,7 @@
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 50%;
       left: 50%;
@@ -154,11 +154,11 @@
   }
 
   /*
-        === Media ===
-    */
+    === Media ===
+  */
   @include media(w1024) {
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
       z-index: -1;

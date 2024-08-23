@@ -1,4 +1,5 @@
-@use "../../system/mixins" as *;
+@use '../../system/mixins' as *;
+@use '../../system/breakpoints' as *;
 
 .site-footer {
   display: flex;
@@ -49,8 +50,8 @@
       width: 100%;
       height: 100%;
 
-      $t-propss: transform;
-      @include trans-config($t-propss);
+      $t-props: transform;
+      @include trans-config($t-props);
     }
 
     &::before {
