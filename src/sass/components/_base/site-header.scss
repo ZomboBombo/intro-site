@@ -14,6 +14,7 @@
   inset: 0;
   bottom: auto;
   z-index: var(--z-header);
+  display: none;
   margin: 0;
   padding: var(--gap-def-ver) var(--gap-def-hor);
   background-color: var(--ui-primary);
@@ -156,7 +157,9 @@
   /*
     === Media ===
   */
-  @include media(w1024) {
+  @include media(w768) {
+    display: block;
+
     &::before {
       content: '';
       position: absolute;

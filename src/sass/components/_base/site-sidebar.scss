@@ -1,22 +1,29 @@
 @use '../../system/vars' as *;
 @use '../../system/mixins' as *;
+@use '../../system/breakpoints' as *;
 
 .site-sidebar {
   @include trans-config(transform, var(--trans-base));
   @include base-gradient-bg;
 
-  position: fixed;
+  position: sticky;
   isolation: isolate;
   inset: 0;
   right: auto;
+  transform: translateX(-100%);
   z-index: var(--z-sidebar);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  min-width: max-content;
+  height: auto;
+  max-height: 100vh;
   padding: 1rem 1.6rem;
+  border-right: 0.2rem solid var(--ui-secondary);
 
   &.is-open {
-    transform: translateX(-100%);
+    transform: translateX(0);
   }
 
   &__nav-menu {
@@ -82,5 +89,12 @@
         image: none;
       }
     }
+  }
+
+  /*
+    === Media ===
+  */
+  @include media(w768) {
+    display: none;
   }
 }

@@ -1,13 +1,17 @@
 mixin site-sidebar(props = {})
-  aside.site-sidebar&attributes(attributes)
+  aside.site-sidebar(data-sidebar="sidebar")&attributes(attributes)
     button.site-sidebar__trigger(
       type="button"
-      aria-label="Open the sidebar with additional info"
       title="Open the sidebar with additional info"
+      aria-label="Open the sidebar with additional info"
+      data-tooltip="Open the sidebar with additional info"
+      data-sidebar="trigger"
+      data-sidebar-text-open="Open the sidebar with additional info"
+      data-sidebar-text-close="Close sidebar"
     )
       +icon({
-        width: 100,
-        height: 100,
+        width: 45,
+        height: 45,
         name: 'icon-logo',
       })
 
