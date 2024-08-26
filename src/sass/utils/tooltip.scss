@@ -1,0 +1,67 @@
+@use '../system/mixins' as *;
+
+.tooltip {
+  $tooltip-base-gap: 1.2rem;
+
+  &:where(:hover, :focus-visible) &__text {
+    transition-delay: 0.75s;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &--pos-relative {
+    position: relative;
+    isolation: isolate;
+  }
+
+  &--top &__text {
+    top: calc(-1 * $tooltip-base-gap);
+    left: 50%;
+    translate: -50% -100%;
+  }
+
+  &--right &__text {
+    top: 50%;
+    left: calc(-1 * $tooltip-base-gap);
+    translate: -100% -50%;
+  }
+
+  &--bottom &__text {
+    top: calc(100% + $tooltip-base-gap);
+    left: 50%;
+    translate: -50% 0;
+  }
+
+  &--left &__text {
+    top: 50%;
+    left: calc(100% + $tooltip-base-gap);
+    transform: translateY(-50%);
+  }
+
+  &__text {
+    $t-props: opacity, visibility;
+    @include trans-config($t-props);
+
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    height: auto;
+    margin: 0;
+    padding: 1.2rem 1.8rem;
+    font: {
+      size: 1.6rem;
+      weight: 400;
+    }
+    line-height: 1;
+    color: var(--ui-primary);
+    background-color: var(--ui-secondary);
+    border-radius: calc(1em + $tooltip-base-gap * 2);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
