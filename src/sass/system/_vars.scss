@@ -49,11 +49,16 @@ $z-index: (
   --gap-def-hor: 2rem;
   --gap-section-ver: 12rem;
 
-  // Sizes
+  // Widths
   --w-min: 37.5rem;
   --w-max: 192rem;
   --w-1440: 144rem;
   --w-card-min: 32rem;
+
+  // Sizes
+  --s-bd-base: 0.2rem;
+  --s-site-container-height-base: 98vh;
+  --s-site-container-height-min: 82rem;
 
   // Transitions
   @each $name, $value in $trans {

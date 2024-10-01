@@ -79,3 +79,13 @@
   width: $size;
   height: $size;
 }
+
+/*
+  [SPECIAL]
+  <...> для установки высоты блока,
+  зависимой от base-размеров 'site-container'
+*/
+@mixin base-container-content-height {
+  min-height: calc(var(--s-site-container-height-min) - var(--s-bd-base) * 2);
+  max-height: calc(var(--s-site-container-height-base) - var(--s-bd-base) * 2);
+}
