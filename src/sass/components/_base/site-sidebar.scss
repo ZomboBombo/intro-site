@@ -5,6 +5,7 @@
 .site-sidebar {
   @include trans-config(transform, var(--trans-base));
   @include base-gradient-bg;
+  @include base-container-content-height;
 
   position: sticky;
   isolation: isolate;
@@ -18,9 +19,12 @@
   width: 100%;
   min-width: max-content;
   height: auto;
-  max-height: 100vh;
   padding: 1rem 1.6rem;
-  border-right: 0.2rem solid var(--ui-secondary);
+  border-inline-end: {
+    width: var(--s-bd-base);
+    style: solid;
+    color: var(--ui-secondary);
+  }
 
   &.is-open {
     transform: translateX(0);

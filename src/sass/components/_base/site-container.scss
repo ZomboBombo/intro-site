@@ -9,11 +9,16 @@
   grid-template-columns: 0 1fr;
   width: 100%;
   max-width: var(--w-1440);
-  max-height: 100vh;
-  margin: 0 auto;
+  min-height: var(--s-site-container-height-min);
+  max-height: var(--s-site-container-height-base);
+  margin: auto;
   padding: 0;
-  border: 0.2rem solid var(--ui-secondary);
-  border-radius: 0.8rem;
+  border: {
+    width: var(--s-bd-base);
+    style: solid;
+    color: var(--ui-secondary);
+    radius: calc(var(--s-bd-base) * 4);
+  }
   overflow-x: hidden;
 
   &.is-sidebar-open {
@@ -24,7 +29,6 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    min-height: 100vh;
   }
 
   /*

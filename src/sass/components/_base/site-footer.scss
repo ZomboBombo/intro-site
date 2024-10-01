@@ -9,7 +9,11 @@
   margin: 0;
   margin-block-start: auto;
   padding: var(--gap-def-ver) var(--gap-def-hor);
-  border-top: 0.2rem solid var(--ui-secondary);
+  border-block-start: {
+    width: var(--s-bd-base);
+    style: solid;
+    color: var(--ui-secondary);
+  }
 
   &__nav-menu {
     @include reset-list;
@@ -51,7 +55,7 @@
       height: 100%;
 
       $t-props: transform;
-      @include trans-config($t-props);
+      @include trans-config($t-props, var(--trans-base));
     }
 
     &::before {
