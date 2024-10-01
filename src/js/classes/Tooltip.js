@@ -1,14 +1,11 @@
-const TooltipDefProps = {
-  position: 'right',
-}
-
 export default class Tooltip {
   #tooltip = null
-  #props = null
+  #props = {
+    position: 'right',
+  }
 
-  constructor(tooltip, props) {
+  constructor(tooltip) {
     this.#tooltip = tooltip
-    this.#props = props ?? TooltipDefProps
   }
 
   init() {
@@ -54,12 +51,15 @@ export default class Tooltip {
       case 'top':
         this.#tooltip.classList.add('tooltip--top')
         break
+
       case 'bottom':
         this.#tooltip.classList.add('tooltip--bottom')
         break
+
       case 'left':
         this.#tooltip.classList.add('tooltip--right')
         break
+
       case 'right':
       default:
         this.#tooltip.classList.add('tooltip--left')
