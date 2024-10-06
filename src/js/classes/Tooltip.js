@@ -1,11 +1,15 @@
 export default class Tooltip {
   #tooltip = null
-  #props = {
-    position: 'right',
-  }
+  #position = null
 
   constructor(tooltip) {
     this.#tooltip = tooltip
+
+    if (!this.#tooltip) {
+      return
+    }
+
+    this.#position = tooltip.getAttribute('data-tooltip-position') || 'right'
   }
 
   init() {
@@ -33,8 +37,6 @@ export default class Tooltip {
   }
 
   #setTooltip(text) {
-    const {position} = this.#props
-
     const tooltipTextElem = document.createElement('span')
     tooltipTextElem.classList.add('tooltip__text')
     tooltipTextElem.setAttribute('data-tooltip-text', '')
@@ -47,7 +49,7 @@ export default class Tooltip {
     this.#tooltip.classList.add('tooltip')
     isPositionAllow && this.#tooltip.classList.add('tooltip--pos-relative')
 
-    switch (position) {
+    switch (this.#position) {
       case 'top':
         this.#tooltip.classList.add('tooltip--top')
         break
