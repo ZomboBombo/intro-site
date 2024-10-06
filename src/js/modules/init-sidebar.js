@@ -1,12 +1,12 @@
 import Sidebar from "../classes/Sidebar"
 
 export default function initSidebar() {
-  const sidebarElement = document.querySelector('[data-sidebar="sidebar"]')
+  const $sidebarElement = document.querySelector('[data-sidebar="sidebar"]')
 
-  if (!sidebarElement) {
+  if (!$sidebarElement) {
     return
   }
 
-  const sidebar = new Sidebar(sidebarElement)
+  const sidebar = new Sidebar($sidebarElement)
   sidebar.init()
 }
