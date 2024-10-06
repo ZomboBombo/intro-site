@@ -1,0 +1,50 @@
+@use '../system/mixins' as *;
+@use '../system/breakpoints' as *;
+
+.color-scheme-switcher {
+  $cs-switcher-gap: 0.8rem;
+  $cs-switcher-icn-size: 4.8rem;
+  $cs-switcher-btn-total-size: calc($cs-switcher-icn-size + ($cs-switcher-gap * 2));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $cs-switcher-gap;
+  width: 100%;
+  max-width: max-content;
+  height: auto;
+  margin: 0 auto;
+  padding: $cs-switcher-gap;
+  border: 0.2rem solid var(--ui-secondary);
+  border-radius: $cs-switcher-btn-total-size;
+
+  &__btn {
+    $t-props: color, background-color, opacity;
+    @include trans-config($t-props);
+    margin: 0;
+    padding: $cs-switcher-gap;
+    font-size: 0;
+    line-height: 0;
+    color: var(--ui-secondary);
+    border: 0.2rem solid var(--ui-secondary);
+    border-radius: 50%;
+    cursor: pointer;
+
+    &.is-active {
+      color: var(--ui-primary);
+      background-color: var(--ui-secondary);
+    }
+
+    &:where(:hover, :focus-visible) {
+      background-color: var(--ui-secondary-trans025);
+    }
+
+    &:active {
+      opacity: 0.75;
+    }
+  }
+
+  &__icn {
+    @include square($cs-switcher-icn-size);
+  }
+}

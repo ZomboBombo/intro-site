@@ -3,10 +3,10 @@
 /*
   <...> основной градиентный "background" сайта
 */
-@mixin base-gradient-bg($bg-color: var(--cs-dark), $bg-gradient: var(--ui-gradient)) {
+@mixin base-gradient-bg($bg-color: var(--ui-primary), $bg-gradient: var(--ui-gradient)) {
   background: {
-    color: var(--cs-dark);
-    image: var(--ui-gradient);
+    color: $bg-color;
+    image: $bg-gradient;
     repeat: no-repeat;
     position: center center;
   }

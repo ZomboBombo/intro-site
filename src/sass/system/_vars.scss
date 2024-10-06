@@ -26,23 +26,25 @@ $z-index: (
   --color-def-transparent: hsl(0 0% 100% / 0);
   //
   // => [ui]
-  --ui-primary: hsl(272 58% 6%);
-  --ui-primary-trans050: hsl(272 58% 6% / 0.5);
-  --ui-primary-trans025: hsl(272 58% 6% / 0.25);
-  --ui-primary-shade-1: hsl(271 74% 6%);
-  --ui-primary-shade-2: hsl(271 34% 15%);
-  --ui-primary-shade-3: hsl(271 34% 35%);
-  --ui-secondary: hsl(260 90% 81%);
-  --ui-secondary-trans050: hsl(260 90% 81% / 0.5);
-  --ui-secondary-trans025: hsl(260 90% 81% / 0.25);
+  // => [ui-values]
+  --ui-primary-hsl-value: 272 58% 6%;
+  --ui-secondary-hsl-value: 260 90% 81%;
+  // => [ui-primary-colors]
+  --ui-primary: hsl(var(--ui-primary-hsl-value));
+  --ui-primary-trans050: hsl(var(--ui-primary-hsl-value) / 0.5);
+  --ui-primary-trans025: hsl(var(--ui-primary-hsl-value) / 0.25);
+  --ui-primary-shade-1: hsl(272 74% 6%);
+  --ui-primary-shade-2: hsl(272 34% 15%);
+  --ui-primary-shade-3: hsl(272 34% 35%);
+  // => [ui-secondary-colors]
+  --ui-secondary: hsl(var(--ui-secondary-hsl-value));
+  --ui-secondary-trans050: hsl(var(--ui-secondary-hsl-value) / 0.5);
+  --ui-secondary-trans025: hsl(var(--ui-secondary-hsl-value) / 0.25);
   --ui-secondary-shade-1: hsl(260 90% 71%);
   --ui-secondary-shade-2: hsl(260 90% 61%);
   --ui-secondary-shade-3: hsl(260 90% 55%);
+  // => [ui-gradients]
   --ui-gradient: linear-gradient(45deg, var(--ui-primary) 0%, var(--ui-primary-shade-1) 100%);
-  //
-  // => [color-scheme]
-  --cs-dark: var(--ui-primary);
-  --cs-light: var(--ui-secondary);
 
   // Gaps
   --gap-def-ver: 1.25rem;
@@ -80,4 +82,18 @@ $z-index: (
   @media only screen and (max-width: 420px) {
     --w-card-min: 24rem;
   }
+}
+
+html[data-color-scheme='light'] {
+  // => [ui-values]
+  --ui-primary-hsl-value: 260 90% 81%;
+  --ui-secondary-hsl-value: 272 58% 6%;
+  // => [ui-primary-colors]
+  --ui-primary-shade-1: hsl(260 90% 71%);
+  --ui-primary-shade-2: hsl(260 90% 61%);
+  --ui-primary-shade-3: hsl(260 90% 55%);
+  // => [ui-secondary-colors]
+  --ui-secondary-shade-1: hsl(272 74% 6%);
+  --ui-secondary-shade-2: hsl(272 34% 15%);
+  --ui-secondary-shade-3: hsl(272 34% 35%);
 }

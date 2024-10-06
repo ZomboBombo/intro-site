@@ -46,6 +46,7 @@
     margin: 0;
     font-size: 3.2rem;
     line-height: 1;
+    color: var(--ui-secondary);
     padding: var(--nm-link-gap) 5rem;
     border: 0.2rem solid var(--ui-secondary);
     border-radius: var(--nm-brd-rad);
@@ -93,6 +94,12 @@
         image: none;
       }
     }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.4rem;
   }
 
   /*

@@ -12,7 +12,7 @@ mixin site-sidebar(props = {})
       +icon({
         width: 45,
         height: 45,
-        name: 'icon-logo',
+        name: 'icn-logo',
       })
 
     nav.site-sidebar__nav
@@ -28,4 +28,6 @@ mixin site-sidebar(props = {})
               aria-label=tooltip
             )= navItem.text
 
-    +copyright({year: '2024'})
+    footer.site-sidebar__footer
+      +color-scheme-switcher()
+      +copyright({year: '2024'})
