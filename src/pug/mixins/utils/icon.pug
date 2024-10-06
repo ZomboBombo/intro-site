@@ -1,7 +1,9 @@
 mixin icon(props = {})
+  - const {width, height, name} = props 
+
   svg(
-    width=props.width
-    height=props.height
+    width=width
+    height=height
     aria-hidden="true"
   )&attributes(attributes)
-    use(href= `#${props.name}`)
+    use(href= `#${name}`)
