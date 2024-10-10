@@ -10,7 +10,6 @@ $trans: (
 /*
   Z-index
 */
-
 $z-index: (
   'header': 99,
   'sidebar': 99,
@@ -60,7 +59,7 @@ $z-index: (
   // Sizes
   --s-bd-base: 0.2rem;
   --s-site-container-height-base: 98vh;
-  --s-site-container-height-min: 82rem;
+  --s-site-container-height-min: 40rem;
 
   // Transitions
   @each $name, $value in $trans {
