@@ -78,9 +78,16 @@
     }
   }
 
+  &__controls {
+    display: flex;
+    align-items: center;
+    column-gap: 1.6rem;
+  }
+
   &__burger {
     $t-props: background-color, opacity;
     @include trans-config($t-props);
+    @include square(6.4rem);
 
     position: relative;
     isolation: isolate;
@@ -88,8 +95,6 @@
     justify-content: center;
     align-items: center;
     font-size: 0;
-    width: 3.2rem;
-    height: 3.2rem;
     background-color: var(--ui-primary);
     border: 0.2rem solid var(--ui-secondary);
     border-radius: 0.8rem;
@@ -111,6 +116,8 @@
 
     &::before,
     &::after {
+      $t-props: rotate, box-shadow;
+      @include trans-config($t-props);
       content: '';
       position: absolute;
       top: 50%;
@@ -121,15 +128,18 @@
       height: 0.2rem;
       background-color: var(--ui-secondary);
       border-radius: 0.8rem;
+    }
 
-      $t-props: rotate, box-shadow;
-      @include trans-config($t-props);
-    }
     &::before {
-      box-shadow: 0 0.6rem 0 0 var(--ui-secondary);
+      box-shadow: 0 1.2rem 0 0 var(--ui-secondary);
     }
+
     &::after {
-      box-shadow: 0 -0.6rem 0 0 var(--ui-secondary);
+      box-shadow: 0 -1.2rem 0 0 var(--ui-secondary);
+    }
+
+    &:where(:hover, :focus-visible) {
+      background-color: var(--ui-secondary-trans025);
     }
 
     &:active {
@@ -148,6 +158,7 @@
       &::before {
         box-shadow: 0 0.7rem 0 0 var(--ui-secondary);
       }
+
       &::after {
         box-shadow: 0 -0.7rem 0 0 var(--ui-secondary);
       }

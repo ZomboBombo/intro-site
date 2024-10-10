@@ -21,11 +21,14 @@ mixin site-header(props = {})
               data-burger-menu="link"
             )= navItem.text
 
-      button.site-header__burger(
-        type="button"
-        aria-label="Open Nav Menu"
-        aria-pressed="false"
-        data-burger-menu="burger"
-        data-burger-tt-close="Open Nav Menu"
-        data-burger-tt-open="CLose Nav Menu"
-      ) Nav Menu Trigger
+      .site-header__controls
+        +color-scheme-switcher()
+
+        button.site-header__burger(
+          type="button"
+          aria-label="Open Nav Menu"
+          aria-pressed="false"
+          data-burger-menu="burger"
+          data-burger-tt-close="Open Nav Menu"
+          data-burger-tt-open="CLose Nav Menu"
+        ) Nav Menu Trigger
