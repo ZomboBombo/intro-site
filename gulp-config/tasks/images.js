@@ -1,4 +1,4 @@
-import { src, dest } from 'gulp'
+import {src, dest} from 'gulp'
 
 // --- Оптимизация изображений ---
 import imagemin from 'gulp-imagemin'
@@ -29,22 +29,22 @@ import Helpers from '../helpers'
 const path_to_images_set = {
   of_all_formats: `${PATH_TO.src.img}**/*.{png,jpg,svg}`,
   of_bitmaps: `${PATH_TO.src.img}**/*.{png,jpg}`,
-  of_svg_icons: `${PATH_TO.src.img}**/{logo,icon-*}.svg`,
+  of_svg_icons: `${PATH_TO.src.img}**/{logo,icn-*}.svg`,
 }
 
 
 // *** Оптимизация изображений ***
 export const optimizeImages = () => {
   return Helpers.pipeline(
-      src(path_to_images_set.of_all_formats),
-      imagemin([
-        imagemin.optipng(ASSETS_CONF.images.optipng),
-        imagemin.mozjpeg(ASSETS_CONF.images.mozjpeg),
-        imagemin.svgo({
-          plugins: [ASSETS_CONF.images.svgo],
-        })
-      ]),
-      dest(PATH_TO.build.img)
+    src(path_to_images_set.of_all_formats),
+    imagemin([
+      imagemin.optipng(ASSETS_CONF.images.optipng),
+      imagemin.mozjpeg(ASSETS_CONF.images.mozjpeg),
+      imagemin.svgo({
+        plugins: [ASSETS_CONF.images.svgo],
+      })
+    ]),
+    dest(PATH_TO.build.img)
   )
 }
 
@@ -52,9 +52,9 @@ export const optimizeImages = () => {
 // *** Переформатирование изображений в WebP ***
 export const transformToWebp = () => {
   return Helpers.pipeline(
-      src(path_to_images_set.of_bitmaps),
-      webp(ASSETS_CONF.images.webp),
-      dest(PATH_TO.build.img)
+    src(path_to_images_set.of_bitmaps),
+    webp(ASSETS_CONF.images.webp),
+    dest(PATH_TO.build.img)
   )
 }
 
@@ -62,12 +62,12 @@ export const transformToWebp = () => {
 // *** Сборка SVG-спрайта ***
 export const sprite = () => {
   return Helpers.pipeline(
-      src(path_to_images_set.of_svg_icons),
-      svgstore({
-        inlineSvg: true,
-      }),
-      rename('sprite.svg'),
-      dest(PATH_TO.build.img)
+    src(path_to_images_set.of_svg_icons),
+    svgstore({
+      inlineSvg: true,
+    }),
+    rename('sprite.svg'),
+    dest(PATH_TO.build.img)
   )
 }
 

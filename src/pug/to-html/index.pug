@@ -1,11 +1,11 @@
 extends ../base/layout
 
 append variables
-    - const title = 'Intro'
+  - const title = 'Intro'
 
 
 block main
-    main
-        +section-hero()
-        +section-skills()
-        +section-pets()
+  +section-hero()
+
+  section(style="min-height: 100vh; background-color: red; border: 0.4rem solid green;")#section-skills
+  section(style="min-height: 100vh; background-color: blue; border: 0.4rem solid yellow;")#section-pets

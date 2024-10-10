@@ -1,66 +1,65 @@
-@use "../system/mixins" as *;
-
+@use '../system/mixins' as *;
+@use '../system/breakpoints' as *;
 
 .section-pets {
+  display: flex;
+  flex-direction: column;
+  row-gap: 6.4rem;
+  padding: {
+    block-start: var(--gap-section-ver);
+    block-end: var(--gap-section-ver);
+  }
+  scroll-margin-block-start: var(--gap-section-ver);
+
+  &__title-box {
     display: flex;
     flex-direction: column;
-    row-gap: 6.4rem;
-    padding: {
-        block-start: var(--gap-section-ver);
-        block-end: var(--gap-section-ver);
-    };
-    scroll-margin-block-start: var(--gap-section-ver);
+    align-items: end;
+  }
 
+  &__title-desc {
+    margin: 0;
+    padding: 0;
+    font-size: 3.2rem;
+  }
+
+  &__subsection {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.4rem;
+  }
+
+  &__subsection-title {
+    margin: 0;
+    padding: 0;
+    font: {
+      size: 7.2rem;
+      weight: 700;
+    }
+  }
+
+  &__list {
+    @include reset-list;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--w-card-min), 1fr));
+    gap: 1.2rem;
+
+    li {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  /*
+        === Media ===
+    */
+  @include media(w1024) {
     &__title-box {
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-    }
-
-    &__title-desc {
-        margin: 0;
-        padding: 0;
-        font-size: 3.2rem;
-    }
-
-    &__subsection {
-        display: flex;
-        flex-direction: column;
-        row-gap: 2.4rem;
+      row-gap: 2.4rem;
     }
 
     &__subsection-title {
-        margin: 0;
-        padding: 0;
-        font: {
-            size: 7.2rem;
-            weight: 700;
-        };
+      font-size: 4.8rem;
     }
-
-    &__list {
-        @include reset-list;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(var(--w-card-min), 1fr));
-        gap: 1.2rem;
-
-        li {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-
-
-    /*
-        === Media ===
-    */
-    @include media(w1024) {
-        &__title-box {
-            row-gap: 2.4rem;
-        }
-
-        &__subsection-title {
-            font-size: 4.8rem;
-        }
-    }
+  }
 }

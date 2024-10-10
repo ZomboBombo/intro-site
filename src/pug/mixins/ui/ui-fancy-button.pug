@@ -1,12 +1,12 @@
-mixin ui-fancy-button(data = {})
-    -
-        const tag = data.href ? 'a' : 'button'
-        const type = data.href ? false : data.type || 'button'
+mixin ui-fancy-button(props = {})
+  -
+    const tag = props.href ? 'a' : 'button'
+    const type = props.href ? false : props.type || 'button'
 
-    #{tag}.ui-fancy-button(
-        type=type
-        title=data.tooltip
-        aria-label=data.tooltip
-        value=data.text
-    )&attributes(attributes)
-        | #{data.text}
+  #{tag}.ui-fancy-button(
+    type=type
+    title=props.tooltip
+    aria-label=props.tooltip
+    value=props.text
+  )&attributes(attributes)
+    | #{props.text}

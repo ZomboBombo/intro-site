@@ -1,11 +1,11 @@
-import path from 'path';
-import webpack from 'webpack';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import path from 'path'
+import webpack from 'webpack'
+import {CleanWebpackPlugin} from 'clean-webpack-plugin'
 
-const webpackHotMiddlewareConfig = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true&overlay=true/';
-const TerserPlugin = require('terser-webpack-plugin');
-const isProd = process.env.NODE_ENV === 'production';
-const isDev = !isProd;
+const webpackHotMiddlewareConfig = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true&overlay=true/'
+const TerserPlugin = require('terser-webpack-plugin')
+const isProd = process.env.NODE_ENV === 'production'
+const isDev = !isProd
 
 /*
   Объект с "входными точками" для компиляции
@@ -16,7 +16,7 @@ const isDev = !isProd;
 */
 const EntryPoints = {
   main: './js/main.js',
-};
+}
 
 if (isDev) {
   /*
@@ -28,7 +28,7 @@ if (isDev) {
   */
   Object.keys(EntryPoints).forEach(
     (entry) => (EntryPoints[entry] = [webpackHotMiddlewareConfig].concat(EntryPoints[entry]))
-  );
+  )
 }
 
 
@@ -39,7 +39,7 @@ module.exports = {
   devtool: isDev ? 'source-map' : false,
   output: {
     filename: () => {
-      return isDev ? 'hot-bundle.js' : '[name].min.js';
+      return isDev ? 'hot-bundle.js' : '[name].min.js'
     },
     path: path.resolve(__dirname, 'build/js'),
     publicPath: '',
@@ -70,4 +70,4 @@ module.exports = {
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
-};
+}

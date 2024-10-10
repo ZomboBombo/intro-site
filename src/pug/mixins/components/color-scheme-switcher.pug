@@ -1,0 +1,35 @@
+mixin color-scheme-switcher(props = {})
+  -
+    const colorSchemeControls = [
+      {
+        colorScheme: 'dark',
+        text: 'Dark',
+        tooltipText: 'Switch to «Dark» theme',
+        icn: 'icn-theme-dark',
+        isActive: true,
+      },
+      {
+        colorScheme: 'light',
+        text: 'Light',
+        tooltipText: 'Switch to «Light» theme',
+        icn: 'icn-theme-light',
+      },
+    ]
+
+  menu.color-scheme-switcher(data-color-scheme-switcher="parent")&attributes(attributes)
+    each item in colorSchemeControls
+      - const {colorScheme, text, tooltipText, icn, isActive} = item
+
+      li.color-scheme-switcher__item
+        button.color-scheme-switcher__btn(
+          type="button"
+          class=isActive && 'is-active'
+          aria-label=tooltipText
+          data-color-scheme-switcher="control"
+          data-color-scheme=colorScheme
+        )= text
+          +icon({
+            width: 48,
+            height: 48,
+            name: icn,
+          }).color-scheme-switcher__icn
