@@ -1,28 +1,30 @@
 @use '../system/mixins' as *;
 @use '../system/breakpoints' as *;
 
-.color-scheme-switcher {
-  $cs-switcher-gap: 0.8rem;
-  $cs-switcher-icn-size: 4.8rem;
-  $cs-switcher-btn-total-size: calc($cs-switcher-icn-size + ($cs-switcher-gap * 2));
+:root {
+  --cs-switcher-gap: 0.8rem;
+  --cs-switcher-icn-size: 4.8rem;
+  --cs-switcher-btn-total-size: calc(var(--cs-switcher-icn-size) + (var(--cs-switcher-gap) * 2));
+}
 
+.color-scheme-switcher {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: $cs-switcher-gap;
+  gap: var(--cs-switcher-gap);
   width: 100%;
   max-width: max-content;
   height: auto;
   margin: 0 auto;
-  padding: $cs-switcher-gap;
+  padding: var(--cs-switcher-gap);
   border: 0.2rem solid var(--ui-secondary);
-  border-radius: $cs-switcher-btn-total-size;
+  border-radius: var(--cs-switcher-btn-total-size);
 
   &__btn {
     $t-props: color, background-color, opacity;
     @include trans-config($t-props);
     margin: 0;
-    padding: $cs-switcher-gap;
+    padding: var(--cs-switcher-gap);
     font-size: 0;
     line-height: 0;
     color: var(--ui-secondary);
@@ -45,6 +47,13 @@
   }
 
   &__icn {
-    @include square($cs-switcher-icn-size);
+    @include square(var(--cs-switcher-icn-size));
+  }
+
+  /*
+    === Media ===
+  */
+  @include media(w768) {
+    --cs-switcher-icn-size: 2.4rem;
   }
 }
