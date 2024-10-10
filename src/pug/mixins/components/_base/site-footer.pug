@@ -2,19 +2,16 @@ mixin site-footer(props = {})
   footer.site-footer&attributes(attributes)
     nav.site-footer__nav
       menu.site-footer__nav-menu
-        each navItem in DataSocialsNavigation
-          -
-            const href = navItem.href || '#'
-            const tooltip = navItem.tooltip || false
-            const notAction = !navItem.isAction
+        each navItem in DataSocialsNavigation          
+          - const {href, tooltip, text, isAction} = navItem
 
           li.site-footer__nav-menu-item
             a.site-footer__nav-menu-link(
-              href=href
-              target=notAction && "_blank"
-              rel=notAction && "noopener noreferrer"
+              href=href || '#'
+              target=!isAction && "_blank"
+              rel=!isAction && "noopener noreferrer"
               aria-label=tooltip
-              value=navItem.text
-            )= navItem.text
+              value=text
+            )= text
 
     +copyright({year: '2024'}).site-footer__copyright
