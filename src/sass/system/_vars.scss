@@ -1,23 +1,31 @@
-/*
-  Transition
-*/
-$trans: (
-  'fast': 0.15s,
-  'base': 0.3s,
-  'long': 0.5s
-);
-
-/*
-  Z-index
-*/
-$z-index: (
-  'header': 99,
-  'sidebar': 99,
-  'drops': 999,
-  'modals': 9999
-);
+@use 'config/common-vars.scss' as common-var;
 
 :root {
+  // Gaps
+  @each $name, $value in common-var.$gaps {
+    --gap-#{$name}: #{$value};
+  }
+
+  // Widths
+  @each $name, $value in common-var.$widths {
+    --w-#{$name}: #{$value};
+  }
+
+  // Sizes
+  @each $name, $value in common-var.$sizes {
+    --s-#{$name}: #{$value};
+  }
+
+  // Transitions
+  @each $name, $value in common-var.$transitions {
+    --trans-#{$name}: #{$value};
+  }
+
+  // Z-indexes
+  @each $name, $value in common-var.$z-indexes {
+    --z-#{$name}: #{$value};
+  }
+
   // Colors
   // => [default]
   --color-def-white: hsl(0 0% 100%);
@@ -44,32 +52,6 @@ $z-index: (
   --ui-secondary-shade-3: hsl(260 90% 55%);
   // => [ui-gradients]
   --ui-gradient: linear-gradient(45deg, var(--ui-primary) 0%, var(--ui-primary-shade-1) 100%);
-
-  // Gaps
-  --gap-def-ver: 1.25rem;
-  --gap-def-hor: 2rem;
-  --gap-section-ver: 12rem;
-
-  // Widths
-  --w-min: 37.5rem;
-  --w-max: 192rem;
-  --w-1440: 144rem;
-  --w-card-min: 32rem;
-
-  // Sizes
-  --s-bd-base: 0.2rem;
-  --s-site-container-height-base: 98vh;
-  --s-site-container-height-min: 40rem;
-
-  // Transitions
-  @each $name, $value in $trans {
-    --trans-#{$name}: #{$value};
-  }
-
-  // Z-indexes
-  @each $name, $value in $z-index {
-    --z-#{$name}: #{$value};
-  }
 
   /*
     === Media ===
