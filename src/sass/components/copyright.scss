@@ -1,0 +1,16 @@
+@use '../system/breakpoints' as *;
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.4rem;
+  font-size: 1.6rem;
+  color: var(--ui-secondary);
+
+  /*
+    === Media ===
+  */
+  @include media(w768) {
+    width: 100%;
+  }
+}

@@ -1,60 +1,56 @@
-@use "../system/mixins" as *;
+@use '../system/mixins' as *;
+@use '../system/breakpoints' as *;
 
 .pet-card-wip {
-    position: relative;
-    isolation: isolate;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--ui-secondary);
+  border-radius: 2.4rem;
+  outline: 0.2rem solid var(--ui-primary);
+  outline-offset: -0.4rem;
+  overflow: hidden;
+
+  &__title {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: var(--ui-secondary);
-    border-radius: 2.4rem;
-    outline: 0.2rem solid var(--ui-primary);
-    outline-offset: -0.4rem;
-    overflow: hidden;
-
-    &__title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0.4rem 1.2rem;
-        font: {
-            size: 3.2rem;
-            weight: 700;
-        };
-        line-height: 1;
-        text-align: center;
-        color: var(--ui-color-white);
-        background-color:var(--ui-primary-trans050);
-        backdrop-filter: blur(2.5rem);
+    margin: 0;
+    padding: 0.4rem 1.2rem;
+    font: {
+      size: 3.2rem;
+      weight: 700;
     }
+    line-height: 1;
+    text-align: center;
+    color: var(--ui-color-white);
+    background-color: var(--ui-primary-trans050);
+    backdrop-filter: blur(2.5rem);
+  }
 
-    &__icon {
-        $icon-size: calc(100% - 4rem);
+  &__icon {
+    $icon-size: calc(100% - 4rem);
 
-        position: absolute;
-        z-index: -1;
-        width: $icon-size;
-        height: $icon-size;
-        color: var(--ui-primary);
-    }
+    position: absolute;
+    z-index: -1;
+    width: $icon-size;
+    height: $icon-size;
+    color: var(--ui-primary);
+  }
 
-
-    /*
+  /*
         === Media ===
     */
-    @include media(w1024) {
-        width: 100%;
-        min-width: auto;
-        min-height: 60rem;
-
-        // &__title {
-        //     min-height: 0rem;
-        // }
-    }
+  @include media(w1024) {
+    width: 100%;
+    min-width: auto;
+    min-height: 60rem;
+  }
 }

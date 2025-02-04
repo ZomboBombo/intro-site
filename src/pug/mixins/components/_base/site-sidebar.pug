@@ -1,0 +1,33 @@
+mixin site-sidebar(props = {})
+  aside.site-sidebar(data-sidebar="sidebar")&attributes(attributes)
+    button.site-sidebar__trigger(
+      type="button"
+      title="Open the sidebar with additional info"
+      aria-label="Open the sidebar with additional info"
+      data-tooltip="Open the sidebar with additional info"
+      data-sidebar="trigger"
+      data-sidebar-text-open="Open the sidebar with additional info"
+      data-sidebar-text-close="Close sidebar"
+    )
+      +icon({
+        width: 45,
+        height: 45,
+        name: 'icn-logo',
+      })
+
+    nav.site-sidebar__nav
+      menu.site-sidebar__nav-menu
+        each navItem in DataMainNavigation
+          -
+            const href = navItem.href || '#'
+            const tooltip = navItem.tooltip || false
+
+          li.site-sidebar__nav-menu-item
+            a.site-sidebar__nav-menu-link(
+              href=href
+              aria-label=tooltip
+            )= navItem.text
+
+    footer.site-sidebar__footer
+      +color-scheme-switcher()
+      +copyright({year: '2024'})

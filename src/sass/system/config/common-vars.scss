@@ -1,0 +1,46 @@
+/*
+  Transitions
+*/
+$transitions: (
+  'fast': 0.15s,
+  'base': 0.3s,
+  'long': 0.5s
+);
+
+/*
+  Z-indexes
+*/
+$z-indexes: (
+  'header': 99,
+  'sidebar': 99,
+  'drops': 999,
+  'modals': 9999
+);
+
+/*
+  Gaps
+*/
+$gaps: (
+  'def-ver': 1.25rem,
+  'def-hor': 2rem,
+  'section-ver': 12rem
+);
+
+/*
+  Widths
+*/
+$widths: (
+  'min': 37.5rem,
+  'max': 192rem,
+  '1440': 144rem,
+  'card-min': 32rem
+);
+
+/*
+  Sizes
+*/
+$sizes: (
+  'bd-base': 0.2rem,
+  'site-container-height-base': 98vh,
+  'site-container-height-min': 40rem
+);

@@ -1,17 +1,3 @@
-mixin section-hero(data = {})
-    section.section-hero#section-about&attributes(attributes)
-        hgroup.section-hero__title-box
-            h1.section-hero__title Hi! I'm a #[code.ui-code #{'<Sergey Novikov>'}]
-            p.section-hero__title-desc
-                span.section-hero__title-desc-text
-                    | A frontend-dev, fan of #[code.ui-code #{'<coffee>'}], #[code.ui-code #{'<metroidvanias>'}] and #[code.ui-code #{'<kettlebells>'}].
-                span.section-hero__title-desc-text Since 2018 make frontend and I like it.
-
-        +picture({
-            width: 350,
-            height: 350,
-            name: 'content/content-selfie',
-            ext: 'png',
-            alt: 'It\'s me, hi!',
-        }).section-hero__pic
-
+mixin section-hero(props = {})
+  section.section-hero#section-about&attributes(attributes)
+    h1.section-hero__title #[code.ui-code #{'<Sergey Novikov>'}]
