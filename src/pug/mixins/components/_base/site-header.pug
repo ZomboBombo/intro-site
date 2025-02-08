@@ -8,7 +8,7 @@ mixin site-header(props = {})
           name: 'icn-logo',
         })
 
-      menu.site-header__nav-menu(data-burger-menu="menu")
+      ul.site-header__nav-menu(data-burger-menu="menu")
         each navItem in DataMainNavigation
           -
             const href = navItem.href || '#'
