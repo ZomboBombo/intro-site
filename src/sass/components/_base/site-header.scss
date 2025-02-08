@@ -227,4 +227,14 @@
       display: flex;
     }
   }
+
+  @include media(w520) {
+    &__nav {
+      justify-content: start;
+    }
+
+    &__controls {
+      width: 100%;
+    }
+  }
 }
