@@ -12,6 +12,24 @@
   }
 }
 
+@mixin base-border($border-type: '') {
+  @if ($border-type != '') {
+    border-#{$border-type}: {
+      width: var(--s-bd-base);
+      style: solid;
+      color: var(--ui-secondary);
+      radius: calc(var(--s-bd-base) * 4);
+    }
+  } @else {
+    border: {
+      width: var(--s-bd-base);
+      style: solid;
+      color: var(--ui-secondary);
+      radius: calc(var(--s-bd-base) * 4);
+    }
+  }
+}
+
 /*
   <...> для сброса стилей списков
 */

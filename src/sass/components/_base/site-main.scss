@@ -1,5 +1,9 @@
 .site-main {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 100%;
+  margin-block: auto;
+  overflow: hidden;
 }

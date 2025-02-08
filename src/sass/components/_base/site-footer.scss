@@ -7,7 +7,6 @@
   align-items: center;
   gap: 3.2rem;
   margin: 0;
-  margin-block-start: auto;
   padding: var(--gap-def-ver) var(--gap-def-hor);
   border-block-start: {
     width: var(--s-bd-base);
@@ -44,7 +43,7 @@
 
     &::before,
     &::after {
-      content: attr(value);
+      content: attr(data-value);
       position: absolute;
       inset: 0;
       z-index: 1;
@@ -53,6 +52,7 @@
       align-items: center;
       width: 100%;
       height: 100%;
+      padding-inline: $l-gap-horizontal;
 
       $t-props: transform;
       @include trans-config($t-props, var(--trans-base));
@@ -100,6 +100,13 @@
     &__nav-menu {
       flex-direction: column;
       gap: 0.5em;
+    }
+
+    &__nav-menu-link {
+      &::before,
+      &::after {
+        justify-content: start;
+      }
     }
 
     &__copyright {

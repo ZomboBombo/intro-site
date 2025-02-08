@@ -1,3 +1,29 @@
 mixin section-hero(props = {})
+  -
+    const heroTags = [
+      {text: 'HTML-coder', shortText: '<HTML>', ariaDescribedby: 'tag-html'},
+      {text: 'Vanilla-JS lover', shortText: '<JS>', ariaDescribedby: 'tag-js'},
+      {text: 'Flutter\'s neophyte', shortText: '<Flutter>', ariaDescribedby: 'tag-flutter'},
+    ]
+
+
   section.section-hero#section-about&attributes(attributes)
-    h1.section-hero__title #[code.ui-code #{'<Sergey Novikov>'}]
+    +ui-code({
+      tag: 'h1', 
+      text: 'Sergey Novikov',
+    }).section-hero__title
+
+    menu.section-hero__tags
+      each tag in heroTags
+        - const { text, shortText, ariaDescribedby } = tag
+
+        li
+          +ui-code({
+            tag: 'button',
+            text: text,
+            isColorReverse: true,
+          })(
+            type="button"
+            aria-describedby=ariaDescribedby
+            data-short-text=shortText || ''
+          ).section-hero__tag

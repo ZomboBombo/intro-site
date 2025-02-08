@@ -1,6 +1,7 @@
 /*
   Media
 */
+$media-w520: 520px;
 $media-w768: 768px;
 $media-w1024: 1024px;
 $media-w1280: 1280px;
@@ -10,7 +11,11 @@ $media-w1440: 1440px;
   Универсальный миксин для медиа-запросов
 */
 @mixin media($media) {
-  @if $media == w768 {
+  @if $media == w520 {
+    @media only screen and (max-width: calc($media-w520)) {
+      @content;
+    }
+  } @else if $media == w768 {
     @media only screen and (max-width: calc($media-w768)) {
       @content;
     }

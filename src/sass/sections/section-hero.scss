@@ -2,58 +2,71 @@
 @use '../system/breakpoints' as *;
 
 .section-hero {
-  @include base-container-content-height;
-
-  $fs-w1024: clamp(2.4rem, 4.685vw, 3.2rem);
+  $fs-w1024: clamp(4.8rem, 6vw, 9.6rem);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2.4rem;
+  gap: 1.2rem;
   width: auto;
-  max-width: 100rem;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   margin-inline: auto;
   padding: var(--gap-section-ver) 2.5rem;
   scroll-margin-block-start: var(--gap-section-ver);
 
   &__title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 0.8rem;
+    display: inline;
+    width: 100%;
+    padding: 1.6rem 3.2rem;
     font: {
-      size: 6.4rem;
+      size: 9.6rem;
       weight: 700;
     }
+    text-align: center;
+    white-space: normal;
+    border-radius: 3.2rem;
+  }
 
-    code {
-      width: min-content;
-      padding-inline: 1.6rem;
-      font-size: 9.6rem;
-      white-space: normal;
+  &__tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    width: 100%;
+
+    &:has(button:hover) button:not(:hover) {
+      opacity: 0.25;
     }
+  }
+
+  &__tag {
+    $trans-props: opacity;
+    @include trans-config($trans-props);
+
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    max-width: none;
+    font-size: 2.4rem;
+    white-space: wrap;
+    cursor: pointer;
+  }
+
+  &__tag-descrs {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
   }
 
   /*
     === Media ===
   */
   @include media(w1024) {
-    width: auto;
-
     &__title {
-      flex-direction: row;
-      align-items: center;
-      column-gap: 2.4rem;
       font-size: $fs-w1024;
-
-      code {
-        align-self: start;
-        font-size: 1.4em;
-      }
     }
   }
 
@@ -62,10 +75,20 @@
     flex-direction: column;
     width: auto;
     max-width: 100%;
+  }
 
-    &__title {
-      flex-direction: column;
-      align-items: start;
+  @include media(w520) {
+    &__tag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-inline: 0.8rem;
+      font-size: 0;
+
+      &::after {
+        content: attr(data-short-text);
+        font-size: 2.4rem;
+      }
     }
   }
 }
