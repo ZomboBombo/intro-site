@@ -1,0 +1,13 @@
+mixin ui-code(props = {})
+  -
+    const {
+      tag = 'code',
+      text,
+      noBrackets,
+      isColorReverse,
+    } = props
+
+  #{tag}.ui-code(
+    class= noBrackets && 'ui-code--no-brackets'
+    class= isColorReverse && 'ui-code--color-reverse'
+  )&attributes(attributes)!= text
