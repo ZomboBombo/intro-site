@@ -18,7 +18,7 @@ html(lang="en")
 
     // Fonts preloading
     link(rel="preload" href="./fonts/inconsolata/Inconsolata-Regular.woff2" as="font" crossorigin="anonymous")
-    link(rel="stylesheet" href="./css/styles.min.css")
+    link(rel="stylesheet" href="/src/sass/styles.scss")
 
   body
     +sprite()
@@ -33,4 +33,4 @@ html(lang="en")
 
         +site-footer()
 
-    script(src="##hot-bundle-js##?ver=##hash##")
+    script(src="/src/js/main.ts" type="module")
