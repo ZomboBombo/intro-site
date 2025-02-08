@@ -1,3 +1,2 @@
-build/*.js
-gulpfile.babel.js
-webpack.config.js
+build/**/*.js
+vite.config.{js,mjs,cjs}
