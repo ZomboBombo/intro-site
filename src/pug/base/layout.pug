@@ -17,12 +17,10 @@ html(lang="en")
     +favicons()
 
     // Fonts preloading
-    link(rel="preload" href="./fonts/inconsolata/Inconsolata-Regular.woff2" as="font" crossorigin="anonymous")
+    link(rel="preload" href="/fonts/inconsolata/Inconsolata-Regular.woff2" as="font" crossorigin="anonymous")
     link(rel="stylesheet" href="/src/sass/styles.scss")
 
   body
-    +sprite()
-
     .site-container(data-sidebar="parent")
       +site-header()
       +site-sidebar()
