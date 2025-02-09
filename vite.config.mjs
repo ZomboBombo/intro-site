@@ -1,7 +1,11 @@
+// Core Plugins
 import vituum from 'vituum'
 import pages from 'vituum/plugins/pages'
 import pug from '@vituum/vite-plugin-pug'
 import autoprefixer from 'autoprefixer'
+
+// Custom Plugins
+import customStackSvgPlugin from './custom-vite-plugins/custom-stack-svg-plugin'
 
 export default {
   base: './',
@@ -36,6 +40,10 @@ export default {
     },
   },
   plugins: [
+    customStackSvgPlugin({
+      pathToSpriteIcns: './public/img/icons/',
+      output: './public/img/sprite.svg',
+    }),
     vituum(),
     pug({
       root: './src/pug/to-html',

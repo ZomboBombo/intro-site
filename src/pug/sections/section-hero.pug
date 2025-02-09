@@ -1,6 +1,6 @@
 mixin section-hero(props = {})
   -
-    const heroTags = [
+    const DataHeroTags = [
       {text: 'HTML-coder', shortText: '<HTML>', ariaDescribedby: 'tag-html'},
       {text: 'Vanilla-JS lover', shortText: '<JS>', ariaDescribedby: 'tag-js'},
       {text: 'Flutter\'s neophyte', shortText: '<Flutter>', ariaDescribedby: 'tag-flutter'},
@@ -9,12 +9,12 @@ mixin section-hero(props = {})
 
   section.section-hero#section-about&attributes(attributes)
     +ui-code({
-      tag: 'h1', 
+      tag: 'h1',
       text: 'Sergey Novikov',
     }).section-hero__title
 
     menu.section-hero__tags
-      each tag in heroTags
+      each tag in DataHeroTags
         - const { text, shortText, ariaDescribedby } = tag
 
         li
