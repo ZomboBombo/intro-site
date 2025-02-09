@@ -3,12 +3,12 @@ import path from 'path'
 import { readFile, writeFile } from 'fs/promises'
 import fastGlob from 'fast-glob'
 
-interface StackSvgProps {
+interface IStackSvgProps {
   pathToSpriteIcns: string
   output: string
 }
 
-async function generateStackSvg({ pathToSpriteIcns, output }: StackSvgProps): Promise<void> {
+async function generateStackSvg({ pathToSpriteIcns, output }: IStackSvgProps): Promise<void> {
   const files = await fastGlob(`${pathToSpriteIcns}*.svg`)
 
   if (!files.length) {
@@ -50,7 +50,7 @@ async function generateStackSvg({ pathToSpriteIcns, output }: StackSvgProps): Pr
   `)
 }
 
-export default function customStackSvgPlugin({ pathToSpriteIcns, output }: StackSvgProps): Plugin[] {
+export default function customStackSvgPlugin({ pathToSpriteIcns, output }: IStackSvgProps): Plugin[] {
   return [{
     name: 'stack-svg-plugin',
     buildStart: async () => await generateStackSvg({ pathToSpriteIcns, output }),
