@@ -22,12 +22,15 @@
   "homepage": "https://github.com/ZomboBombo/intro-site#readme",
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^1.6.1",
+    "@types/node": "^22.13.1",
     "@typescript-eslint/eslint-plugin": "8.23.0",
     "@typescript-eslint/parser": "8.23.0",
     "@vituum/vite-plugin-pug": "1.1.0",
     "autoprefixer": "10.4.20",
     "cross-env": "^7.0.3",
     "eslint": "^8.31.0",
+    "fast-glob": "3.3.3",
+    "fs-extra": "11.3.0",
     "postcss": "^8.4.20",
     "postcss-scss": "^4.0.6",
     "sass": "^1.57.1",
@@ -36,8 +39,5 @@
     "typescript": "5.7.3",
     "vituum": "1.1.1"
   },
-  "dependencies": {
-    "fast-glob": "^3.3.3",
-    "fs-extra": "^11.3.0"
-  }
+  "dependencies": {}
 }
