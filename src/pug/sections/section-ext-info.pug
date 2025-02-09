@@ -1,6 +1,6 @@
 mixin section-ext-info(props = {})
   -
-    const heroTagDescrs = [
+    const DataHeroTagDescrs = [
       {id: 'tag-html', descr: 'With attention and love for semantic HTML-tags and a11y-attributes'},
       {id: 'tag-js', descr: 'Love Vanilla-JS, respect TypeScript and other cool JS-features'},
       {id: 'tag-flutter', descr: 'Learning the basics of mobile development with Dart & Flutter'},
@@ -10,7 +10,7 @@ mixin section-ext-info(props = {})
     h2.visually-hidden Extended info about me
 
     ul.section-ext-info__descr-list
-      each tagDescr in heroTagDescrs
+      each tagDescr in DataHeroTagDescrs
         - const { id, descr } = tagDescr
 
         li.section-ext-info__descr-item

@@ -1,11 +1,11 @@
 mixin link(props = {})
   -
-    const isExternal = data?.isExternal
-    const hasVisibleTooltip = data?.hasVisibleTooltip
+    const isExternal = props.isExternal
+    const hasVisibleTooltip = props.hasVisibleTooltip
     const href = props.href
-    const target = isExternal ? '_blank' : false
-    const rel = isExternal ? 'noopener noreferrer' : false
-    const tooltip = data?.tooltip || false
+    const target = isExternal && '_blank'
+    const rel = isExternal && 'noopener noreferrer'
+    const tooltip = props.tooltip || false
 
   a(
     href=href
